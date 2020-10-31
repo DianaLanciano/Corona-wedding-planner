@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoronaWedding.Data;
 using CoronaWedding.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace CoronaWedding.Controllers
 {
@@ -31,7 +32,8 @@ namespace CoronaWedding.Controllers
                              select c;
                 caterings = result.ToList();
             }
-
+            string isAdmin = HttpContext.Session.GetString("Type");
+            ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
 
             return View(caterings);
         }

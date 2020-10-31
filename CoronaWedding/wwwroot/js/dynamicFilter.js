@@ -15,6 +15,25 @@
         window.location.replace("/" + controller + "/Details/" + idToDetails);
     });
 
+    $(".addToCartButoon").click(function ()
+    {
+        var itemType = $(this).attr("name");
+        var itemId = $(this).attr("id");
+        $.ajax({
+            type: "GET",
+            url: "/Accounts/addToCart?itemType=" + itemType + "&itemId=" + itemId,
+            success: function () {
+                consol.log("ajax works!");
+            },
+            error: function () {
+                consol.log("Error");
+        }
+
+    });
+     
+        
+    });
+
 
 });
  

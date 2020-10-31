@@ -176,6 +176,7 @@ namespace CoronaWedding.Controllers
                 var ifEmailExist = (from u in _context.Account
                                   where u.Email.ToUpper() == email.ToUpper()
                                   select new { email}).FirstOrDefault();
+
                 if (ifEmailExist != null)
                 {
                     ViewData["error"] = "Email already exist";
@@ -200,19 +201,12 @@ namespace CoronaWedding.Controllers
         private void SignIn(Account account)
         {
             HttpContext.Session.SetString("Type", account.Type.ToString());
-            HttpContext.Session.SetString("Name", account.Email);
-            HttpContext.Session.SetInt32("Id", account.AccountId);
+            HttpContext.Session.SetString("userId", account.Email);
         }
 
         // GET: Accounts/Login
         public IActionResult Login()
-        {
-            string user = HttpContext.Session.GetString("Type");
-
-            if (user != null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+        { 
 
             return View();
         }
@@ -226,12 +220,49 @@ namespace CoronaWedding.Controllers
                 SignIn(user);
                 return RedirectToAction("Index", "Home");
             }
+            HttpContext.Session.SetString("userId", user.Email);
+            HttpContext.Session.SetString("Type", user.Type.ToString());
 
             //in case user is null
             ViewData["error"] = "Email not exist";
             return View();
         }
 
-      
+        public async Task<IActionResult> addToCart(string itemType, int itemId)
+        {
+            string userId = HttpContext.Session.GetString("userId");
+            string userType = HttpContext.Session.GetString("Type");
+            if (userId == null || userType == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+
+            var user = _context.Account.FirstOrDefault(u => u.Email == userId);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+
+            switch(itemType)
+            {
+                case "Catering": user.CateringId = itemId; break;
+                case "Location": user.LocationId = itemId; break;
+                case "Music": user.MusicId = itemId; break;
+                case "Photographer": user.PhotographerId = itemId; break;
+            }
+
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+           return RedirectToAction("Index",itemType);
+        }
+
+        public bool isAdmin()
+        {
+            string isAdmin = HttpContext.Session.GetString("Type");
+            return isAdmin.Equals("Admin");
+        }
+
+
+
     }
 }
