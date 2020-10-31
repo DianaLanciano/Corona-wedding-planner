@@ -1,0 +1,43 @@
+//C:\Users\isakoDiana\source\repos\WeddingPlanner\WeddingPlanner\Data\dataJsonFiles\
+[
+  {
+    "foodType": "asian",
+    "supplireEmail": "ruben.@typepad.com",
+    "price": 1250,
+    "imagePath": "https://lh3.googleusercontent.com/proxy/-kAujIHqivBg841utUoVYMxSNI3EHwlz4cbim0avUTx2fXIzF1Z8WqLTmuZ7MxfkYX9E6lx1qbF9J3dqDc0c28Nqi5ujuYGmwXfI-g7EVxcfgRb1hGoOkZARcvn44ooxj5HWhMS9gkJvVVmy"
+  },
+  {
+    "foodType": "asian",
+    "supplireEmail": "maryanna.@unesco.org",
+    "price": 3220,
+    "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQZ9XxoK0UQxC71pu3i00vsAenwzE0o0pun2Q&usqp=CAU"
+  },
+  {
+    "foodType": "meaty",
+    "supplireEmail": "morgen.@gmpg.org",
+    "price": 2521,
+    "imagePath": "https://www.eluna.com/Logos/hamikdash_meat.jpg"
+  },
+  {
+    "foodType": "vegan",
+    "supplireEmail": "nomi.@pinterest.com",
+    "price": 789,
+    "imagePath": "https://i.pinimg.com/originals/a2/78/aa/a278aaecbba7fc62c5920f9f431953ee.jpg"
+  },
+  {
+    "foodType": "meaty",
+    "supplireEmail": "lazar.@angelfire.com",
+    "price": 977,
+    "imagePath": "https://www.eluna.com/Logos/MeatAndEat_sirloin.jpg"
+  },
+  {
+    "foodType": "vegan",
+    "supplireEmail": "yank.@unblog.fr",
+    "price": 1200,
+    "imagePath": "https://veganigourmet.com/wp-content/uploads/2018/11/Banner1.jpg"
+  }
+
+
+
+
+]

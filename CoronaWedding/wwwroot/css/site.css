@@ -1,0 +1,323 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Amatic SC', cursive;
+}
+
+
+/*********************************************************************************
+ Header                                                          
+/*********************************************************************************/
+
+#header {
+    overflow: hidden;
+    margin-top: 0;
+    text-align: center;
+}
+/*********************************************************************************
+ Logo                                                          
+/*********************************************************************************/
+#logo {
+    margin:auto;
+    padding: 0;
+   /* width: 75%;*/
+    
+}
+/*********************************************************************************
+ intro text                                                          
+/*********************************************************************************/
+.textAboutSite {
+    display: flex;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    justify-content: center;
+}
+/*********************************************************************************
+ navbar                                                          
+/*********************************************************************************/
+
+.navlist {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    width: auto;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+li {
+    float: right;
+}
+
+.nav-link text-dark li a:hover {
+    color: #FFE6E6;
+    text-decoration: none
+}
+
+.navlist a:after {
+    content: "|";
+    display: inline-block;
+    margin: 0 15px;
+    color: #bebebe;
+    font-size: 14px;
+}
+
+.navlist ul li:last-child {
+    content: "";
+}
+/*********************************************************************************
+Button design                                                          
+/*********************************************************************************/
+.buttonForSite {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    padding: 12px 23px;
+    border: 1px solid #ffffff;
+    border-radius: 100px;
+    background: #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#fac0c0));
+    background: -moz-linear-gradient(top, #ffffff, #fac0c0);
+    background: linear-gradient(to bottom, #ffffff, #fac0c0);
+    font: normal normal bold 21px tahoma;
+    color: #ffffff;
+}
+
+    .buttonForSite:hover,
+    .buttonForSite:focus {
+        background: #ffffff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffe6e6));
+        background: -moz-linear-gradient(top, #ffffff, #ffe6e6);
+        background: linear-gradient(to bottom, #ffffff, #ffe6e6);
+        color: black;
+    }
+
+    .buttonForSite:active {
+        background: #999999;
+        background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#fac0c0));
+        background: -moz-linear-gradient(top, #999999, #fac0c0);
+        background: linear-gradient(to bottom, #999999, #fac0c0);
+    }
+
+
+/*********************************************************************************
+Footer                                                         
+/*********************************************************************************/
+.footerConteiner {
+    background-color: #f9e6e6;
+    text-align: center;
+    padding: 0;
+    margin-top: auto;
+    flex-shrink: inherit;
+}
+
+    .footerConteiner i {
+        padding: 3px;
+    }
+
+/* .footerConteiner p {
+        padding: 3px;
+    }*/
+
+
+/*********************************************************************************
+ carousel homePage                                                           
+/*********************************************************************************/
+.carousel-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-item {
+    padding: 5% 3%;
+}
+
+.carouselImg {
+    border-radius: 10%;
+}
+
+.carousel {
+    margin-left: 38%;
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    margin-left: 350px;
+    width: 50%;
+    height: auto;
+}
+
+    .title img {
+        width: 60%;
+        height: auto;
+        margin-left: 6%;
+    }
+
+/*********************************************************************************
+ login section                                                           
+/*********************************************************************************/
+.login-member {
+    text-align: center;
+    align-content: center;
+    font-family: 'Architects Daughter', cursive;
+    font-size: larger;
+    /*direction: rtl;*/
+    margin-top: 100px;
+    margin-bottom: 216px;
+}
+
+.wrap-input100 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+text-center {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/*********************************************************************************
+ register                                                          
+/*********************************************************************************/
+.signIn {
+    margin: auto;
+    padding: 10px;
+}
+
+/*.col-md-4, row {
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+/*********************************************************************************
+ stage page filter                                                        
+/*********************************************************************************/
+.filter-nav {
+    margin: auto;
+}
+
+.filter {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1d2cb;
+    cursor: pointer;
+    width: 274px;
+    font-weight: bold;
+}
+
+.filter-all {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1d2cb;
+    cursor: pointer;
+    width: 274px;
+    font-weight: bold;
+}
+
+.filter:hover {
+    background-color: #F7EEEC;
+}
+
+.filter-all:hover {
+    background-color: #F7EEEC;
+}
+/*********************************************************************************
+ stage page table                                                         
+/*********************************************************************************/
+.filterDiv {
+    float: left;
+    background-color: transparent;
+    color: red;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 2px;
+    vertical-align: middle;
+    width: 273px;
+    height: 400px;
+    position: relative;
+    border: ridge;
+}
+
+.responsive-images {
+    margin-top: 20px;
+}
+
+.filterDiv img {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+.editIcon {
+    padding:3px;
+}
+
+.filterDiv .buttonForSite {
+    margin-top: 55px;
+}
+
+.filterDiv {
+    color: pink;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.filter-c {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1d2cb;
+    cursor: pointer;
+    width: 154px;
+    font-weight: bold;
+}
+
+.filter-all-c {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1d2cb;
+    cursor: pointer;
+    width: 154px;
+    font-weight: bold;
+}
+
+.filter-c:hover {
+    background-color: #F7EEEC;
+}
+
+.filter-all-c:hover {
+    background-color: #F7EEEC;
+}
+/*********************************************************************************
+ Details Page Decoration  and google map in details page                                                     
+/**********************************************************************************/
+.textDetails {
+    text-align: right;
+}
+
+#map {
+    height: 300px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+
+.imgDet {
+    border: 5px solid #f7dad9;
+    border-radius: 4px;
+    padding: 5px;
+}

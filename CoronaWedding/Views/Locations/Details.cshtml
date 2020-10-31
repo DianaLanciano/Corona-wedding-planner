@@ -1,0 +1,46 @@
+﻿@model CoronaWedding.Models.Location
+
+@{
+    ViewData["Title"] = "Details";
+}
+<!--for google maps-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg0b4Y77V-zjOZJxsaInHmi-Uy7SmLrxU&callback=initMap&libraries=&v=weekly"
+        defer></script>
+
+<div class="row">
+    <div class="col-md-7">
+        <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0 imgDet" src="@Model.imagePath">
+        </a>
+    </div>
+    <div class="col-md-5 textDetails">
+        <h3>@Model.city</h3>
+        <p>Email: @Model.supplireEmail</p>
+        <p>Capacity: @Model.placeCapacity</p>
+        <p dir="rtl">Price: @Model.price$</p>
+        <div id="map">
+
+        </div>
+
+        <button class="buttonForSite">Add To Cart</button>
+        <input hidden id="lon" value="@Model.Longitude" />
+        <input hidden id="lat" value="@Model.Latitude" />
+    </div>
+</div>
+
+<script>
+
+    // Initialize and add the map
+    function initMap() {
+        const lon = +document.getElementById("lon").value;
+        const lat = +document.getElementById("lat").value;
+        
+        // The location of Uluru
+        const uluru = { lat: lat, lng: lon};
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: uluru,
+        });
+    }
+</script>

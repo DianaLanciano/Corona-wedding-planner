@@ -1,0 +1,21 @@
+﻿@model CoronaWedding.Models.Catering
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0 imgDet" src="@Model.imagePath">
+        </a>
+    </div>
+    <div class="col-md-5 textDetails">
+        <h3>@Model.foodType</h3>
+        <p>Email: @Model.supplireEmail</p>
+        <p>Pricr: @Model.price$</p>
+
+        <button class="buttonForSite">Add To Cart</button>
+
+    </div>
+</div>

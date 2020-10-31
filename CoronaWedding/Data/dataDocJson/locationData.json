@@ -1,0 +1,92 @@
+//C:\Users\isakoDiana\source\repos\WeddingPlanner\WeddingPlanner\Data\dataJsonFiles\
+[
+  {
+    "placeCapacity": 35,
+    "supplireEmail": "brandea.@cbsnews.com",
+    "area": "north",
+    "city": "Ma'ale Gamla",
+    "imagePath": "https://cf.bstatic.com/images/hotel/max1024x768/211/211169617.jpg",
+    "price": 800,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13401.626661117498!2d35.69139971134256!3d32.88741471393095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c1a4d802367c5%3A0xac34bb192a2b19df!2z157Xotec15Qg15LXntec15A!5e0!3m2!1siw!2sil!4v1603568132156!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 25,
+    "supplireEmail": "cordula.@youku.com",
+    "area": "south",
+    "city": "Omer",
+    "imagePath": "https://media-cdn.tripadvisor.com/media/photo-s/0e/c9/52/df/triton-luxury-villa.jpg",
+    "price": 900,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27280.466141643003!2d34.876568786734666!3d31.274483442475184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502676f35a89239%3A0xd3092fa77576ecf6!2z16LXldee16g!5e0!3m2!1siw!2sil!4v1603613755289!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 28,
+    "supplireEmail": "gloriana.@skyrock.com",
+    "area": "center",
+    "city": "Ramat HaSharon",
+    "imagePath": "https://cf.bstatic.com/images/hotel/max1024x768/182/182851057.jpg",
+    "price": 550,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27028.40844564689!2d34.84939058578791!3d32.13542463557852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d484be5486675%3A0x8d59955a0441a110!2z16jXnteqINeU16nXqNeV158!5e0!3m2!1siw!2sil!4v1603613837727!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 33,
+    "supplireEmail": "carolyne.@myspace.com",
+    "area": "north",
+    "city": "Had Nes",
+    "imagePath": "https://d3hqqpwk0hr6gl.cloudfront.net/_novaimg/4356759-1355622_0_334_3543_1930_2200_1200.rc.jpg",
+    "price": 670,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6697.428134399656!2d35.64423982288807!3d32.93215197858977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c19432741ec23%3A0x7727988d3fecf6d5!2z15fXkyDXoNeh!5e0!3m2!1siw!2sil!4v1603613923998!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 95,
+    "supplireEmail": "leonahgae.@myspace.com",
+    "area": "center",
+    "city": "Oranit",
+    "imagePath": "https://www.villa10.co.il/images/gallery/vila_456_174482_UGb6HAy.jpg",
+    "price": 405,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13515.018064669419!2d35.00527071155544!3d32.12993132012429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d3a7c5c53d8c9%3A0xa4c59e5aaa1b31b3!2z15DXldeo16DXmdeq!5e0!3m2!1siw!2sil!4v1603613963118!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 60,
+    "supplireEmail": "trixi.@nyu.edu",
+    "area": "south",
+    "city": "Yeruham",
+    "imagePath": "https://pix10.agoda.net/hotelImages/159/159291/159291_15082616510035123057.jpg?s=1024x768",
+    "price": 500,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27363.34723435601!2d34.93444858704474!3d30.986708560166978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15023f21eb95ae01%3A0x93a390f4a44208f!2z15nXqNeV15fXnQ!5e0!3m2!1siw!2sil!4v1603614050362!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 45,
+    "supplireEmail": "patrice.@blogspot.com",
+    "area": "center",
+    "city": "Herzliya",
+    "imagePath": "https://cf.bstatic.com/images/hotel/max1024x768/171/171170838.jpg",
+    "price": 700,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27017.226704600707!2d34.84551313574578!3d32.173139569780666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d480dc125e56f%3A0x46a023cb144ac1c4!2z15TXqNem15zXmdeU!5e0!3m2!1siw!2sil!4v1603614106044!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 55,
+    "supplireEmail": "maury.@dyndns.org",
+    "area": "center",
+    "city": "Kfar Saba",
+    "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTDbLtenJnKp8nji_7dlR-XFDlcsEu03grFfw&usqp=CAU",
+    "price": 1000,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27015.30120336692!2d34.93826793573851!3d32.17963011706056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d39b32151955f%3A0x8e50c5f354fa376a!2z15vXpNeoINeh15HXkA!5e0!3m2!1siw!2sil!4v1603614163556!5m2!1siw!2sil"
+  },
+  {
+    "placeCapacity": 30,
+    "supplireEmail": "ernesta.@apple.com",
+    "area": "north",
+    "city": "Kfar Blum",
+    "imagePath": "https://odis.homeaway.com/odis/listing/900bb556-7d1c-44d4-b104-216ea1dae1a9.c10.jpg",
+    "price": 700,
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6679.183974755302!2d35.610979822870846!3d33.172336903775765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ea2e03d2df6ef%3A0x1c3c0d2877de18bd!2z15vXpNeoINeR15zXlded!5e0!3m2!1siw!2sil!4v1603614203583!5m2!1siw!2sil"
+  }
+
+
+
+
+
+
+]
+
+

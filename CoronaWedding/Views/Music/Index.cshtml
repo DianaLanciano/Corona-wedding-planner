@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CoronaWedding.Models.Music>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="title">
+    <img src="/Media/images/locationLogo.PNG" alt="title" class="img">
+</div>
+<hr>
+
+<div class="filter-nav">
+    <button class="filter-all filterButton" data-filter="all" value="all" name="Music"> Show All</button>
+    <button class="filter filterButton" data-filter="band" value="band" name="Music">  Live Band</button>
+    <button class="filter filterButton" data-filter="singer" value="singer" name="Music"> Singer</button>
+    <button class="filter filterButton" data-filter="DJ" value="DJ" name="Music"> DJ</button>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="responsive-images">
+        <div class="filterDiv">
+            <img id=@item.MusicId src="@item.imagePath" class="imageFilter" name="Music">
+            <h5 dir="rtl">Email: @item.supplireEmail</h5>
+            <h5 dir="rtl">Music Type: @item.musicType</h5>
+            <h5 dir="rtl">Price: @item.price</h5>
+            <button class="buttonForSite">
+                Add To Cart
+            </button>
+        </div>
+    </div>}
+
+
+
+@section Scripts{
+    <script src="~/js/dynamicFilter.js"></script>
+}

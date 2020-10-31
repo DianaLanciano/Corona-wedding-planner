@@ -1,0 +1,33 @@
+//C:\Users\isakoDiana\source\repos\WeddingPlanner\WeddingPlanner\Data\dataJsonFiles\
+[
+  {
+    "supplireEmail": "ddonnan0@apache.org",
+    "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQLRWIY25RQ9zlmyRlDHBVyIDPuRWFC22LIRg&usqp=CAU",
+    "price": 1100
+  },
+  {
+    "supplireEmail": "gbenfell1@wp.com",
+    "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQmq3z8JYGdSgeEHS6F45X7iO7D7azxfMQi-w&usqp=CAU",
+    "price": 500
+  },
+  {
+    "supplireEmail": "dhaimes2@jalbum.net",
+    "imagePath": "https://makeup-marykay.com/wp-content/uploads/2019/11/Wedding-Photographer.jpg",
+    "price": 980
+  },
+  {
+    "supplireEmail": "mmughal3@cbc.ca",
+    "imagePath": "https://i.pinimg.com/474x/58/25/a6/5825a6bed0dfa0194b88b64d04f84ed1.jpg",
+    "price": 474
+  },
+  {
+    "supplireEmail": "ctissingtona@yolasite.com",
+    "imagePath": "https://www.tr8media.com/wp-content/uploads/2017/03/wedding-photography.jpg",
+    "price": 600
+  },
+  {
+    "supplireEmail": "bpavittb@hp.com",
+    "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRw0RUr6MrsVrdoVaz5eEh4ZFsH4mgJCC9IWA&usqp=CAU",
+    "price": 750
+  }
+]

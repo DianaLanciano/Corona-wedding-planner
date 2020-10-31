@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CoronaWedding.Models.Location>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="title">
+    <img src="/Media/images/locationLogo.PNG" alt="title" class="img">
+</div>
+<hr>
+
+<div class="filter-nav">
+    <button class="filter-all filterButton" data-filter="all" value="all" name="Locations"> Show All</button>
+    <button class="filter filterButton" data-filter="north" value="north" name="Locations"> Notrh</button>
+    <button class="filter filterButton" data-filter="center" value="center" name="Locations"> Center</button>
+    <button class="filter filterButton" data-filter="south" value="south" name="Locations"> South</button>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="responsive-images">
+        <div class="filterDiv">
+            <img id=@item.LocationId src="@item.imagePath" class="imageFilter" name="Locations">
+            <h5 dir="rtl">Email: @item.supplireEmail</h5>
+            <h5 dir="rtl">Place capacity: @item.placeCapacity</h5>
+            <h5 dir="rtl">Price: @item.price</h5>
+            <button class="buttonForSite">
+                Add To Cart
+            </button>
+        </div>
+    </div>}
+
+
+
+@section Scripts{
+    <script src="~/js/dynamicFilter.js"></script>
+}

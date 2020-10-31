@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CoronaWedding.Models.Photographer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="title">
+    <img src="/Media/images/photoLogo.PNG" alt="title" class="img">
+</div>
+<hr>
+
+@foreach (var item in Model)
+{
+    <div class="responsive-images">
+        <div class="filterDiv">
+            <img id=@item.PhotographerId src="@item.imagePath" class="imageFilter" name="Photographers">
+            <h5>Email: @item.supplireEmail</h5>
+            <h5>Price: @item.price</h5>
+            <button class="buttonForSite">
+                Add To Cart
+            </button>
+        </div>
+    </div>}
+
+@section Scripts{
+    <script src="~/js/dynamicFilter.js"></script>
+}

@@ -1,0 +1,45 @@
+﻿@model CoronaWedding.Models.Account
+
+@{
+    ViewData["Title"] = "Signup";
+}
+
+<div class="title">
+    <img src="/Media/images/createAccountLogo.PNG" alt="title" class="img">
+</div>
+
+<form action="Signup" method="post">
+    <section class="signIn">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="wrap-input100 validate-input">
+
+            <h5>@(ViewData["error"])</h5>
+
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input asp-for="Email" dir="rtl" class="input100" name="email" placeholder=" Email">
+            <span class="focus-input100"></span>
+            <span asp-validation-for="password" class="symbol-input100">
+            </span>
+        </div>
+
+        <div class="wrap-input100 validate-input">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input asp-for="password" dir="rtl" class="input100" name="password" placeholder="Password">
+            <span class="focus-input100"></span>
+            <span asp-validation-for="password" class="symbol-input100">
+            </span>
+        </div>
+
+        <div class="wrap-input100 validate-input">
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            <input type="date" asp-for="weddingDate" direction="rtl" class="input100" name="date" placeholder="Weding Date">
+            <span class="focus-input100"></span>
+            <span asp-validation-for="weddingDate" class="symbol-input100">
+            </span>
+        </div>
+
+        <div class="container-login100-form-btn">
+            <button class="buttonForSite login100-form-btn">Sign Up!</button>
+        </div>
+    </section>
+</form>
