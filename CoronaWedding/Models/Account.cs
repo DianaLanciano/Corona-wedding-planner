@@ -21,7 +21,7 @@ namespace CoronaWedding.Models
         [StringLength(50)]
         public string Email { get; set; }
         public string password { get; set; }
-        [DisplayName("Event Date")]
+        [DisplayName("Wedding Date")]
         public DateTime? weddingDate { get; set; }
         public UserType Type { get; set; }
         //for cart

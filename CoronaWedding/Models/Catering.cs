@@ -11,11 +11,12 @@ namespace CoronaWedding.Models
     {
         public int CateringId { get; set; }
         public string foodType { get; set; }//Asian, meaty, vegan
-        [DisplayName("email to contact")]
+        [DisplayName("Supplire Email")]
         public string supplireEmail { get; set; }
         [Required]
         [DisplayName("Price")]
         public int price { get; set; }
+        [DisplayName("Image Adress")]
         public string imagePath { get; set; }
     }
 }

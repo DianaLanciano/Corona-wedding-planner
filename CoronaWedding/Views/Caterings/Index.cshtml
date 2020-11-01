@@ -25,6 +25,14 @@
 {
     <div class="responsive-images">
         <div class="filterDiv">
+            @if (ViewBag.IsAdmin)
+            {
+                <div class="AdminButtons">
+
+                    <a asp-controller="Music" asp-action="Edit" asp-route-id="@item.CateringId">Edit</a>
+                    <a asp-controller="Music" asp-action="Delete" asp-route-id="@item.CateringId">Delete</a>
+                </div>
+            }
             <img id=@item.CateringId src="@item.imagePath" class="imageFilter" name="Caterings">
             <h5 class="mail">Email: @item.supplireEmail</h5>
             <h5 class="mail">Food Type: @item.foodType</h5>

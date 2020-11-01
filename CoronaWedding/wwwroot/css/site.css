@@ -157,24 +157,34 @@ Footer
     height: auto;
 }
 
-    .title img {
+.title img {
         width: 60%;
         height: auto;
         margin-left: 6%;
-    }
+}
+.titleEdit {
+    
+    width: 70%;
+    height: auto;
+}
+.titleEdit img {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+ }
 
 /*********************************************************************************
  login section                                                           
 /*********************************************************************************/
-.login-member {
-    text-align: center;
-    align-content: center;
-    font-family: 'Architects Daughter', cursive;
-    font-size: larger;
-    /*direction: rtl;*/
-    margin-top: 100px;
-    margin-bottom: 216px;
-}
+    .login-member {
+        text-align: center;
+        align-content: center;
+        font-family: 'Architects Daughter', cursive;
+        font-size: larger;
+        /*direction: rtl;*/
+        margin-top: 100px;
+        margin-bottom: 216px;
+    }
 
 .wrap-input100 {
     margin-top: 20px;
