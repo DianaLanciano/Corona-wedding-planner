@@ -11,6 +11,13 @@
 
 @foreach (var item in Model)
 {
+    @if (ViewBag.IsAdmin)
+    {
+        <div class="AdminButtons">
+            <a asp-controller="Photographers" asp-action="Edit" asp-route-id="@item.PhotographerId">Edit</a>
+            <a asp-controller="Photographers" asp-action="Delete" asp-route-id="@item.PhotographerId">Delete</a>
+        </div>
+    }
     <div class="responsive-images">
         <div class="filterDiv">
             <img id=@item.PhotographerId src="@item.imagePath" class="imageFilter" name="Photographers">

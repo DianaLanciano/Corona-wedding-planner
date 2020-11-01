@@ -20,7 +20,14 @@
 {
     <div class="responsive-images">
         <div class="filterDiv">
-           
+            @if (ViewBag.IsAdmin)
+            {
+                <div class="AdminButtons">
+
+                    <a asp-controller="Locations" asp-action="Edit" asp-route-id="@item.LocationId">Edit</a>
+                    <a asp-controller="Locations" asp-action="Delete" asp-route-id="@item.LocationId">Delete</a>
+                </div>
+            }
             <img id=@item.LocationId src="@item.imagePath" class="imageFilter" name="Locations">
             <h5 dir="rtl">Email: @item.supplireEmail</h5>
             <h5 dir="rtl">Place capacity: @item.placeCapacity</h5>

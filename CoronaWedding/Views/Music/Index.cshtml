@@ -22,7 +22,6 @@
             @if (ViewBag.IsAdmin)
             {
                 <div class="AdminButtons">
-
                     <a asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId">Edit</a>
                     <a asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId">Delete</a>
                 </div>

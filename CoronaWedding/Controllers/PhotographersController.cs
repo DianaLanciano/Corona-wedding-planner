@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoronaWedding.Data;
 using CoronaWedding.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace CoronaWedding.Controllers
 {
@@ -22,6 +23,8 @@ namespace CoronaWedding.Controllers
         // GET: Photographers
         public async Task<IActionResult> Index()
         {
+            string isAdmin = HttpContext.Session.GetString("Type");
+            ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
             return View(await _context.Photographer.ToListAsync());
         }
 
@@ -39,6 +42,7 @@ namespace CoronaWedding.Controllers
             {
                 return NotFound();
             }
+
 
             return View(photographer);
         }
