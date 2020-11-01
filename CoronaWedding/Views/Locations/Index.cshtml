@@ -20,11 +20,12 @@
 {
     <div class="responsive-images">
         <div class="filterDiv">
+           
             <img id=@item.LocationId src="@item.imagePath" class="imageFilter" name="Locations">
             <h5 dir="rtl">Email: @item.supplireEmail</h5>
             <h5 dir="rtl">Place capacity: @item.placeCapacity</h5>
             <h5 dir="rtl">Price: @item.price</h5>
-            <button class="buttonForSite">
+            <button class="buttonForSite addToCartButoon" id=@item.LocationId name="Location">
                 Add To Cart
             </button>
         </div>

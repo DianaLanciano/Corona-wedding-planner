@@ -22,7 +22,7 @@
 
         </div>
 
-        <button class="buttonForSite">Add To Cart</button>
+        <button class="buttonForSite addToCartButoon" id=@Model.LocationId name="Location">Add To Cart</button>
         <input hidden id="lon" value="@Model.Longitude" />
         <input hidden id="lat" value="@Model.Latitude" />
     </div>
@@ -34,9 +34,9 @@
     function initMap() {
         const lon = +document.getElementById("lon").value;
         const lat = +document.getElementById("lat").value;
-        
+
         // The location of Uluru
-        const uluru = { lat: lat, lng: lon};
+        const uluru = { lat: lat, lng: lon };
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {
             zoom: 14,
@@ -44,3 +44,7 @@
         });
     }
 </script>
+
+@section Scripts{
+    <script src="~/js/dynamicFilter.js"></script>
+}

@@ -62,8 +62,9 @@ namespace CoronaWedding
             app.UseAuthorization();
             app.UseSession();//Diana
 
-            app.UseEndpoints(endpoints =>
+                app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

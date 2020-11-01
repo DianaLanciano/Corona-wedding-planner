@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CoronaWedding.Data;
 using CoronaWedding.Models;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Microsoft.AspNetCore.Http;
 
 namespace CoronaWedding.Controllers
 {
@@ -33,6 +34,10 @@ namespace CoronaWedding.Controllers
                              select m;
                 MusicTypes = result.ToList();
             }
+
+            string isAdmin = HttpContext.Session.GetString("Type");
+            ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
+
             return View(MusicTypes);
         }
 

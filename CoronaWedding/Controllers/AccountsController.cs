@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CoronaWedding.Data;
 using CoronaWedding.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace CoronaWedding.Controllers
 {
@@ -232,29 +233,35 @@ namespace CoronaWedding.Controllers
         {
             string userId = HttpContext.Session.GetString("userId");
             string userType = HttpContext.Session.GetString("Type");
+
+            //if user not logged in
             if (userId == null || userType == null)
             {
-                return RedirectToAction("Login", "Accounts");
+                // return RedirectToAction(nameof(Login), "Accounts");
+                return Json(new { result = "Redirect", url = Url.Action("Login", "Accounts") });
             }
-
+            //find the user whith this userId(Email)
             var user = _context.Account.FirstOrDefault(u => u.Email == userId);
             if (user == null)
             {
-                return RedirectToAction("Login", "Accounts");
+                //return RedirectToAction("Login","Accounts");
+                return Json(new { result = "Redirect", url = Url.Action("Login", "Accounts") });
             }
 
-            switch(itemType)
+            string forController = itemType;
+            switch (itemType)
             {
-                case "Catering": user.CateringId = itemId; break;
-                case "Location": user.LocationId = itemId; break;
+                case "Catering": user.CateringId = itemId; forController = forController + 's' ; break;
+                case "Location": user.LocationId = itemId; forController = forController + 's'; break;
                 case "Music": user.MusicId = itemId; break;
-                case "Photographer": user.PhotographerId = itemId; break;
+                case "Photographer": user.PhotographerId = itemId; forController = forController + 's'; break;
             }
 
             _context.Update(user);
             await _context.SaveChangesAsync();
-           return RedirectToAction("Index",itemType);
-        }
+            //return RedirectToAction("Index",itemType);
+            return Json(new { result = "Redirect", url = Url.Action("Index", forController) });
+         }
 
         public bool isAdmin()
         {

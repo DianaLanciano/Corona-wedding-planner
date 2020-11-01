@@ -22,11 +22,16 @@
         $.ajax({
             type: "GET",
             url: "/Accounts/addToCart?itemType=" + itemType + "&itemId=" + itemId,
-            success: function () {
-                consol.log("ajax works!");
+            success: function (response) {
+                console.log("ajax works!");
+                if (response.result == 'Redirect') {
+                    window.location = response.url;
+                    alert("Added to cart");
+                }
+                   
             },
             error: function () {
-                consol.log("Error");
+                console.log("Error");
         }
 
     });

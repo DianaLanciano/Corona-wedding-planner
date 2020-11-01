@@ -15,7 +15,10 @@
         <p>Email: @Model.supplireEmail</p>
         <p>Pricr: @Model.price$</p>
 
-        <button class="buttonForSite">Add To Cart</button>
+        <button class="buttonForSite addToCartButoon" id=@Model.CateringId name="Catering">Add To Cart</button>
 
     </div>
 </div>
+@section Scripts{
+    <script src="~/js/dynamicFilter.js"></script>
+}

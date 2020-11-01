@@ -245,7 +245,7 @@ text-center {
     margin: 2px;
     vertical-align: middle;
     width: 273px;
-    height: 400px;
+    height: 500px;
     position: relative;
     border: ridge;
 }
@@ -322,8 +322,18 @@ text-center {
     padding: 5px;
 }
 /*********************************************************************************
-For Admin side in each model                                                     
+links for admin in each model (edit/create/delete)                                                     
 /**********************************************************************************/
-.newItem {
-    
+.AdminButtons {
+    width: 200px;
+    height: 70px;
+    padding: 5px;
+}
+.AdminButton.edit {
+    float: right;
+    position: relative;
+}
+.AdminButton.delete {
+    float: left;
+    position: relative;
 }
