@@ -3,8 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<div class="title">
+@if (ViewBag.IsAdmin)
+{
+    <a class="btn btn btn-light btn-lg" asp-controller="Photographers" asp-action="Create">Add Item</a>
+}
+<div class="titleED">
     <img src="/Media/images/photoLogo.PNG" alt="title" class="img">
 </div>
 <hr>

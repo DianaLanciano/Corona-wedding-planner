@@ -225,8 +225,7 @@ namespace CoronaWedding.Controllers
                 SignIn(user);
                 return RedirectToAction("Index", "Home");
             }
-            HttpContext.Session.SetString("userId", user.Email);
-            HttpContext.Session.SetString("Type", user.Type.ToString());
+          
 
             //in case user is null
             ViewData["error"] = "Email not exist";

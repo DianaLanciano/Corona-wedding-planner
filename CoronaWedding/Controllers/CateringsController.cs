@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CoronaWedding.Data;
 using CoronaWedding.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoronaWedding.Controllers
 {
@@ -57,6 +58,7 @@ namespace CoronaWedding.Controllers
         }
 
         // GET: Caterings/Create
+        
         public IActionResult Create()
         {
             return View();

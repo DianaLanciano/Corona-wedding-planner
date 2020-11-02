@@ -162,16 +162,20 @@ Footer
         height: auto;
         margin-left: 6%;
 }
-.titleEdit {
-    
-    width: 70%;
+
+.titleDE img {
     height: auto;
+    margin-left: 6%;
+    margin-left: 350px;
 }
-.titleEdit img {
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
- }
+aside {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    font-style: italic;
+    background-color: lightgray;
+}
 
 /*********************************************************************************
  login section                                                           
@@ -332,7 +336,7 @@ text-center {
     padding: 5px;
 }
 /*********************************************************************************
-links for admin in each model (edit/create/delete)                                                     
+ Admin buttons in each model (edit/create/delete)                                                     
 /**********************************************************************************/
 .AdminButtons {
     width: 200px;
