@@ -133,7 +133,9 @@ namespace CoronaWedding.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if (HttpContext.Session.GetString("Type").Equals("Admin"))
+                    return RedirectToAction(nameof(Index));
+                else { return RedirectToAction("Index","Home");}
             }
             return View(account);
         }
