@@ -4,6 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
+<script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeVQz8DO_TF3uKnMyPx0sduFZEo6x0uMc&libraries=places&&callback=initSearch"></script>
+
 <h1>Create</h1>
 
 <h4>Location</h4>
@@ -28,11 +31,10 @@
                 <span asp-validation-for="area" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="city" class="control-label"></label>
-                <input asp-for="city" class="form-control" />
-                <span asp-validation-for="city" class="text-danger"></span>
+                <label class="control-label">City</label>
+                <input class="form-control" id="searchTextField" type="text" size="50" placeholder="Enter Israeli City.." />
             </div>
-          
+
             <div class="form-group">
                 <label asp-for="imagePath" class="control-label"></label>
                 <input asp-for="imagePath" class="form-control" />
@@ -46,6 +48,10 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
+            <input asp-for="Latitude" class="form-control" id="lon" type="text" hidden />
+            <input asp-for="Longitude" class="form-control" id="lat" type="text" hidden />
+            <input asp-for="city" class="form-control" id="city" type="text" hidden />
         </form>
     </div>
 </div>
@@ -57,3 +63,22 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+<script>
+    function initSearch() {
+        var input = document.getElementById('searchTextField');
+        var options = {
+            componentRestrictions: { country: 'il' }
+        };
+
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+
+            document.getElementById('lat').value = place.geometry.location.lat();
+            document.getElementById('lon').value = place.geometry.location.lng();
+            document.getElementById('city').value = place.vicinity;
+        });
+    }
+</script>

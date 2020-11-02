@@ -23,12 +23,7 @@
             type: "GET",
             url: "/Accounts/addToCart?itemType=" + itemType + "&itemId=" + itemId,
             success: function (response) {
-                console.log("ajax works!");
-                if (response.result == 'Redirect') {
-                    window.location = response.url;
-                    alert("Added to cart");
-                }
-                   
+                $('#myModal').modal('show');
             },
             error: function () {
                 console.log("Error");

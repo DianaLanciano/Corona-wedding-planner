@@ -102,7 +102,7 @@ namespace CoronaWedding.Controllers
             }
             return View(account);
         }
-    
+
         // POST: Accounts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -135,7 +135,7 @@ namespace CoronaWedding.Controllers
                 }
                 if (HttpContext.Session.GetString("Type").Equals("Admin"))
                     return RedirectToAction(nameof(Index));
-                else { return RedirectToAction("Index","Home");}
+                else { return RedirectToAction("Index", "Home"); }
             }
             return View(account);
         }
@@ -196,8 +196,8 @@ namespace CoronaWedding.Controllers
                 }
 
                 var ifEmailExist = (from u in _context.Account
-                                  where u.Email.ToUpper() == email.ToUpper()
-                                  select new { email}).FirstOrDefault();
+                                    where u.Email.ToUpper() == email.ToUpper()
+                                    select new { email }).FirstOrDefault();
 
                 if (ifEmailExist != null)
                 {
@@ -228,7 +228,7 @@ namespace CoronaWedding.Controllers
 
         // GET: Accounts/Login
         public IActionResult Login()
-        { 
+        {
 
             return View();
         }
@@ -242,7 +242,7 @@ namespace CoronaWedding.Controllers
                 SignIn(user);
                 return RedirectToAction("Index", "Home");
             }
-          
+
 
             //in case user is null
             ViewData["error"] = "Email not exist";
@@ -281,17 +281,18 @@ namespace CoronaWedding.Controllers
             string forController = itemType;
             switch (itemType)
             {
-                case "Catering": user.CateringId = itemId; forController = forController + 's' ; break;
-                case "Location": user.LocationId = itemId; forController = forController + 's'; break;
+                case "Catering": user.CateringId = itemId; break;
+                case "Location": user.LocationId = itemId; break;
                 case "Music": user.MusicId = itemId; break;
-                case "Photographer": user.PhotographerId = itemId; forController = forController + 's'; break;
+                case "Photographer": user.PhotographerId = itemId; break;
+                default: return RedirectToAction("Index", "Home");
             }
 
             _context.Update(user);
             await _context.SaveChangesAsync();
             //return RedirectToAction("Index",itemType);
-            return Json(new { result = "Redirect", url = Url.Action("Index", forController) });
-         }
+            return Json(new { succes = true });
+        }
 
         public bool isAdmin()
         {

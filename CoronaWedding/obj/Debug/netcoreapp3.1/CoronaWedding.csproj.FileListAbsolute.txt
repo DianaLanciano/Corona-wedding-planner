@@ -201,3 +201,4 @@ C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\Data\dataDocJson\photoData.json
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Signup.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Checkout.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Popup.cshtml.g.cs

@@ -12,13 +12,13 @@
     <img src="/Media/images/cateringLogo.PNG" alt="title" class="img">
 </div>
 <hr>
+
 <div class="filter-nav">
     <button class="filter-all filterButton" data-filter="all" value="all" name="Caterings"> Show All</button>
     <button class="filter filterButton" data-filter="asian" value="Asian" name="Caterings"> Asian</button>
     <button class="filter filterButton" data-filter="meaty" value="meaty" name="Caterings"> Meaty</button>
     <button class="filter filterButton" data-filter="vegan" value="vegan" name="Caterings"> Vegan</button>
 </div>
-
 
 @foreach (var item in Model)
 {
@@ -42,5 +42,6 @@
         </div>
     </div>}
 @section Scripts{
+    @{await Html.RenderPartialAsync("_Popup");}
     <script src="~/js/dynamicFilter.js"></script>
 }
