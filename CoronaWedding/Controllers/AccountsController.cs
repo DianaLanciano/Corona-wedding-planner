@@ -71,10 +71,25 @@ namespace CoronaWedding.Controllers
             }
             return View(account);
         }
-
+        //edit my profile
+        public IActionResult editProfile()
+        {
+            int profileId = Int32.Parse(HttpContext.Session.GetString("userId"));
+            if (profileId == null)
+            {
+                return RedirectToAction("Login");
+            }
+            return RedirectToAction("Edit", "Accounts", new { id = profileId });
+        }
         // GET: Accounts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            bool isAdmin = HttpContext.Session.GetString("Type").Equals("Admin");
+            int profileId = Int32.Parse(HttpContext.Session.GetString("userId"));
+            if (!isAdmin && id != profileId)
+            {
+                return RedirectToAction("Edit", "Accounts", new { id = profileId });
+            }
             if (id == null)
             {
                 return NotFound();
@@ -87,7 +102,7 @@ namespace CoronaWedding.Controllers
             }
             return View(account);
         }
-
+    
         // POST: Accounts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -206,7 +221,7 @@ namespace CoronaWedding.Controllers
         private void SignIn(Account account)
         {
             HttpContext.Session.SetString("Type", account.Type.ToString());
-            HttpContext.Session.SetString("userId", account.Email);
+            HttpContext.Session.SetString("userId", account.AccountId.ToString());
         }
 
         // GET: Accounts/Login
@@ -231,7 +246,17 @@ namespace CoronaWedding.Controllers
             ViewData["error"] = "Email not exist";
             return View();
         }
+        public IActionResult Logout()
+        {
+            string user = HttpContext.Session.GetString("userId");
 
+            if (user != null)
+            {
+                HttpContext.Session.Clear();
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
         public async Task<IActionResult> addToCart(string itemType, int itemId)
         {
             string userId = HttpContext.Session.GetString("userId");
@@ -244,7 +269,7 @@ namespace CoronaWedding.Controllers
                 return Json(new { result = "Redirect", url = Url.Action("Login", "Accounts") });
             }
             //find the user whith this userId(Email)
-            var user = _context.Account.FirstOrDefault(u => u.Email == userId);
+            var user = _context.Account.FirstOrDefault(u => u.AccountId.ToString().Equals(userId));
             if (user == null)
             {
                 //return RedirectToAction("Login","Accounts");

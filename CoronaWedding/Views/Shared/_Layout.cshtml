@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,32 +15,67 @@
     <script src="https://kit.fontawesome.com/9a8eb41172.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Corona Wedding</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+
+    <nav class="navbar navbar-light bg-white border-bottom box-shadow mb navbar-expand-sm">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+            Corona Wedding
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-8" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbar-list-8">
+            <ul class="navbar-nav">
+            </ul>
+            <div class="right-side d-flex">
+                @*<form class="form-inline">
+                        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-info" type="submit"><i class="fas fa-search"></i></button>
+                    </form>*@
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="/Media/images/loginIconNav.PNG" width="20" height="20" class="rounded-circle">
+                        </a>
+                        <div id="navLog" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @{ if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null)
+                                {
+
+                                    <a class="dropdown-item"  asp-controller="Accounts" asp-action="editProfile">Edit Profile</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Logout">Log Out</a> }
+                                else
+                                {
+                    <a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Login">Log In</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Create">New to this site?</a> } }
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    
-      <img id="logo" src="/Media/images/LOGO.PNG" alt="logo" onclick="window.location.href = 'https://localhost:44322'">
-    
+    @*<header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Corona Wedding</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>*@
 
+    <img id="logo" src="/Media/images/LOGO.PNG" alt="logo" onclick="window.location.href = 'https://localhost:44322'">
     <div id="header" class="container">
         @* ********************   Nav bar*************************** *@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm  mb-3">
@@ -73,14 +110,16 @@
     </div>
 
     @* ********************   Footer*************************** *@
-    <footer class="footer footerConteiner mt-auto py-3">
+    <section id="footer">
+        <footer class="footer footerConteiner mt-auto py-3">
+            <i class="footer-icons fab fa-facebook-f"></i>
+            <i class="footer-icons fab fa-twitter-square"></i>
+            <i class="footer-icons fab fa-instagram"></i>
+            <i class="footer-icons fas fa-envelope-open-text"></i>
+            <p>© Copyright 2020 Application Cource</p>
+        </footer>
+    </section>
 
-        <i class="footer-icons fab fa-facebook-f"></i>
-        <i class="footer-icons fab fa-twitter-square"></i>
-        <i class="footer-icons fab fa-instagram"></i>
-        <i class="footer-icons fas fa-envelope-open-text"></i>
-        <p>© Copyright 2020 Application Cource</p>
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
