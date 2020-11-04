@@ -20,5 +20,6 @@
     </div>
 </div>
 @section Scripts{
-    <script src="~/js/dynamicFilter.js"></script>
-}
+    @{await Html.RenderPartialAsync("_Popup"); }
+        <script src="~/js/dynamicFilter.js"></script>
+    }

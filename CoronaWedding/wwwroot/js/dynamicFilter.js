@@ -23,7 +23,9 @@
             type: "GET",
             url: "/Accounts/addToCart?itemType=" + itemType + "&itemId=" + itemId,
             success: function (response) {
-                $('#myModal').modal('show');
+                if (response.result === "Redirect") { console.log("Redirect"); window.location.href = (response.url);}
+                else { $('#myModal').modal('show');}
+                
             },
             error: function () {
                 console.log("Error");

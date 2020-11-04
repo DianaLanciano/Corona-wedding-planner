@@ -24,12 +24,12 @@ namespace CoronaWedding.Models
         [DisplayName("Wedding Date")]
         public DateTime? weddingDate { get; set; }
         public UserType Type { get; set; }
+
         //for cart
         public int CateringId { get; set; }
         public int LocationId { get; set; }
         public int MusicId { get; set; }
         public int PhotographerId { get; set; }
-
 
     }
 }

@@ -278,7 +278,6 @@ namespace CoronaWedding.Controllers
                 return Json(new { result = "Redirect", url = Url.Action("Login", "Accounts") });
             }
 
-            string forController = itemType;
             switch (itemType)
             {
                 case "Catering": user.CateringId = itemId; break;
