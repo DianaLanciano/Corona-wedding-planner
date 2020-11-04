@@ -153,5 +153,11 @@ namespace CoronaWedding.Controllers
         {
             return _context.Photographer.Any(e => e.PhotographerId == id);
         }
+
+        /***************For Dashboard**********************/
+        public async Task<IActionResult> List()
+        {
+            return View(await _context.Photographer.ToListAsync());
+        }
     }
 }

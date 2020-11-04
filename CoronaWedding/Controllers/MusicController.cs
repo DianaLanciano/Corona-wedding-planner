@@ -165,5 +165,12 @@ namespace CoronaWedding.Controllers
         {
             return _context.Music.Any(e => e.MusicId == id);
         }
+
+
+        /***************For Dashboard**********************/
+        public async Task<IActionResult> List()
+        {
+            return View(await _context.Music.ToListAsync());
+        }
     }
 }

@@ -203,3 +203,7 @@ C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Checkout.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Popup.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Dashboard.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Locations\List.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Caterings\List.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Music\List.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Photographers\List.cshtml.g.cs

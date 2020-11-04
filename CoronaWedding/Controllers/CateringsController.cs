@@ -164,5 +164,12 @@ namespace CoronaWedding.Controllers
         {
             return _context.Catering.Any(e => e.CateringId == id);
         }
+
+
+        /***************For Dashboard**********************/
+        public async Task<IActionResult> List()
+        {
+            return View(await _context.Catering.ToListAsync());
+        }
     }
 }

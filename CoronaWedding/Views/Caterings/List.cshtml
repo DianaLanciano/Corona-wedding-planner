@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CoronaWedding.Models.Catering>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.foodType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supplireEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.foodType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supplireEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CateringId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CateringId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CateringId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

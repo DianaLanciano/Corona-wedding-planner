@@ -85,8 +85,8 @@ namespace CoronaWedding.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             string isAdmin = HttpContext.Session.GetString("Type");
-            int profileId = HttpContext.Session.GetInt32("userId");
-            if (!isAdmin.Equals("Admin") && id != profileId)
+            string profileId = HttpContext.Session.GetString("userId");
+            if (!isAdmin.Equals("Admin") && id.ToString() != profileId)
             {
                 return RedirectToAction("Edit", "Accounts", new { id = profileId });
             }
@@ -223,7 +223,7 @@ namespace CoronaWedding.Controllers
         private void SignIn(Account account)
         {
             HttpContext.Session.SetString("Type", account.Type.ToString());
-            HttpContext.Session.SetInt32("userId", account.AccountId);
+            HttpContext.Session.SetString("userId", account.AccountId.ToString());
         }
 
         // GET: Accounts/Login
@@ -261,7 +261,7 @@ namespace CoronaWedding.Controllers
         }
         public async Task<IActionResult> addToCart(string itemType, int itemId)
         {
-            int userId = (int)HttpContext.Session.GetInt32("userId");
+            string userId = HttpContext.Session.GetString("userId");
             string userType = HttpContext.Session.GetString("Type");
 
             //if user not logged in
@@ -289,7 +289,6 @@ namespace CoronaWedding.Controllers
 
             _context.Update(user);
             await _context.SaveChangesAsync();
-            //return RedirectToAction("Index",itemType);
             return Json(new { succes = true });
         }
 
@@ -305,6 +304,6 @@ namespace CoronaWedding.Controllers
         {
             return View(await _context.Account.ToListAsync());
         }
-        
+
     }
 }
