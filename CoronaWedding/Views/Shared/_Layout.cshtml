@@ -41,15 +41,14 @@
                                 {
 
                                         <a class="dropdown-item" asp-controller="Accounts" asp-action="editProfile">Edit Profile</a>
-                                        <a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Logout">Log Out</a>
-                                         @if (HttpContextAccessor.HttpContext.Session.GetString("Type").Equals("Admin")) 
-                                         {<a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Dashboard">Dashboard</a> }
-}
-                                 else
-                                     {
-                                  <a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Login">Log In</a>
-                                                    <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Signup">New to this site?</a> }
-                            }
+                                        @if (HttpContextAccessor.HttpContext.Session.GetString("Type").Equals("Admin"))
+                                            {<a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Dashboard">Dashboard</a>}
+                                        @if (HttpContextAccessor.HttpContext.Session.GetString("Type").Equals("Member"))
+                                            {<a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Checkout">Checkout</a>}
+                         <a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Logout">Log Out</a> }
+                                else
+                                   {<a class="dropdown-item" asp-area="" asp-controller="Accounts" asp-action="Login">Log In</a>
+                                     <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Signup">New to this site?</a> } }
                         </div>
                     </li>
                 </ul>
