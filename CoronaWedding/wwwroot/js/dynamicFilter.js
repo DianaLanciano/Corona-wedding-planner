@@ -25,7 +25,6 @@
             success: function (response) {
                 if (response.result === "Redirect") { console.log("Redirect"); window.location.href = (response.url);}
                 else { $('#myModal').modal('show');}
-                
             },
             error: function () {
                 console.log("Error");
