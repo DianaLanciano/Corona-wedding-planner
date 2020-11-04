@@ -215,6 +215,8 @@ namespace CoronaWedding.Controllers
                 _context.Account.Add(user);
                 await _context.SaveChangesAsync();
                 SignIn(user);
+                return RedirectToAction("Index","Home");
+
 
             }
             return View();
