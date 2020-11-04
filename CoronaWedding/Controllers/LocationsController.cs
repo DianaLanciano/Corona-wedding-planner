@@ -163,5 +163,11 @@ namespace CoronaWedding.Controllers
         {
             return _context.Location.Any(e => e.LocationId == id);
         }
+
+        /***************For Dashboard**********************************************************/
+        public async Task<IActionResult> List()
+        {
+            return View(await _context.Account.ToListAsync());
+        }
     }
 }

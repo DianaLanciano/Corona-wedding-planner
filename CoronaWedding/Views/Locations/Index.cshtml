@@ -3,10 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-@if (ViewBag.IsAdmin)
-{
-    <a class="btn btn btn-light btn-lg" asp-controller="Locations" asp-action="Create">Add Item</a>
-}
+
 <div class="title">
     <img src="/Media/images/locationLogo.PNG" alt="title" class="img">
 </div>
@@ -40,6 +37,10 @@
             </button>
         </div>
     </div>}
+<div class="prevAndNext">
+    <a class="previous" asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
+    <a class="next" asp-controller="Caterings" asp-action="Index">Next &raquo;</a>
+</div>
 
 
 

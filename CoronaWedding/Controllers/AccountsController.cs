@@ -74,7 +74,7 @@ namespace CoronaWedding.Controllers
         //edit my profile
         public IActionResult editProfile()
         {
-            int profileId = Int32.Parse(HttpContext.Session.GetString("userId"));
+           string profileId = HttpContext.Session.GetString("userId");
             if (profileId == null)
             {
                 return RedirectToAction("Login");
@@ -84,9 +84,9 @@ namespace CoronaWedding.Controllers
         // GET: Accounts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            bool isAdmin = HttpContext.Session.GetString("Type").Equals("Admin");
-            int profileId = Int32.Parse(HttpContext.Session.GetString("userId"));
-            if (!isAdmin && id != profileId)
+            string isAdmin = HttpContext.Session.GetString("Type");
+            int profileId = HttpContext.Session.GetInt32("userId");
+            if (!isAdmin.Equals("Admin") && id != profileId)
             {
                 return RedirectToAction("Edit", "Accounts", new { id = profileId });
             }
@@ -223,7 +223,7 @@ namespace CoronaWedding.Controllers
         private void SignIn(Account account)
         {
             HttpContext.Session.SetString("Type", account.Type.ToString());
-            HttpContext.Session.SetString("userId", account.AccountId.ToString());
+            HttpContext.Session.SetInt32("userId", account.AccountId);
         }
 
         // GET: Accounts/Login
@@ -261,7 +261,7 @@ namespace CoronaWedding.Controllers
         }
         public async Task<IActionResult> addToCart(string itemType, int itemId)
         {
-            string userId = HttpContext.Session.GetString("userId");
+            int userId = (int)HttpContext.Session.GetInt32("userId");
             string userType = HttpContext.Session.GetString("Type");
 
             //if user not logged in
@@ -300,6 +300,11 @@ namespace CoronaWedding.Controllers
         }
 
 
-
+        /*******************************Admin Dashboard***********************************************************/
+        public async Task<IActionResult> Dashboard()
+        {
+            return View(await _context.Account.ToListAsync());
+        }
+        
     }
 }

@@ -3,10 +3,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-@if (ViewBag.IsAdmin)
-{
-    <a class="btn btn btn-light btn-lg" asp-controller="Caterings" asp-action="Create">Add Item</a>
-}
 
 <div class="title">
     <img src="/Media/images/cateringLogo.PNG" alt="title" class="img">
@@ -40,7 +36,14 @@
             </button>
 
         </div>
-    </div>}
+    </div>
+}
+<div class="prevAndNext">
+    <a class="previous"  asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
+    <a class="next"  asp-controller="Music" asp-action="Index">Next &raquo;</a>
+</div>
+
+
 @section Scripts{
     @{await Html.RenderPartialAsync("_Popup");}
     <script src="~/js/dynamicFilter.js"></script>
