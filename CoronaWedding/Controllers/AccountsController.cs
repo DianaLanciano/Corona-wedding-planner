@@ -9,6 +9,8 @@ using CoronaWedding.Data;
 using CoronaWedding.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Authorization;
+using SQLitePCL;
 
 namespace CoronaWedding.Controllers
 {
@@ -84,16 +86,21 @@ namespace CoronaWedding.Controllers
         // GET: Accounts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            string isAdmin = HttpContext.Session.GetString("Type");
+            //no session
+            if (HttpContext.Session.GetString("Type") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+
+            bool isAdmin = HttpContext.Session.GetString("Type").Equals("Admin");
             string profileId = HttpContext.Session.GetString("userId");
-            if (!isAdmin.Equals("Admin") && id.ToString() != profileId)
+
+            //user is Mamber - can edit only is profile
+            if ((!isAdmin) && id.ToString() != profileId)
             {
                 return RedirectToAction("Edit", "Accounts", new { id = profileId });
             }
-            if (id == null)
-            {
-                return NotFound();
-            }
+          
 
             var account = await _context.Account.FindAsync(id);
             if (account == null)
@@ -148,6 +155,15 @@ namespace CoronaWedding.Controllers
         // GET: Accounts/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetString("Type") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (isAdmin())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return NotFound();
@@ -304,7 +320,25 @@ namespace CoronaWedding.Controllers
         /*******************************Admin Dashboard***********************************************************/
         public async Task<IActionResult> Dashboard()
         {
+            if (HttpContext.Session.GetString("Type") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View(await _context.Account.ToListAsync());
+        }
+
+        public async Task<IActionResult> searchBox(string term)
+        {
+            var query = from user in _context.Account
+                        where user.Email.Contains(term)
+                        select new {id = user.AccountId, label = user.Email, value = user.password };
+
+
+            return Json(await _context.Account.ToListAsync());
         }
 
     }

@@ -134,6 +134,14 @@ namespace CoronaWedding.Controllers
         // GET: Caterings/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetString("Type") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -169,6 +177,14 @@ namespace CoronaWedding.Controllers
         /***************For Dashboard**********************/
         public async Task<IActionResult> List()
         {
+            if (HttpContext.Session.GetString("Type") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View(await _context.Catering.ToListAsync());
         }
     }

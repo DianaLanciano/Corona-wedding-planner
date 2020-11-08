@@ -69,6 +69,9 @@ li {
     color: #bebebe;
     font-size: 14px;
 }
+.lastItem a:after {
+    content: "";
+}
 
 .navlist ul li:last-child {
     content: "";
