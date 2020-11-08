@@ -4,11 +4,37 @@
     ViewData["Title"] = "Index";
 }
 
+<script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeVQz8DO_TF3uKnMyPx0sduFZEo6x0uMc&libraries=places&&callback=initSearch"></script>
+
+
 <div class="title">
     <img src="/Media/images/locationLogo.PNG" alt="title" class="img">
 </div>
 <hr>
-
+<div class="row">
+    <div class="form-group col-3">
+        <label for="area">Area</label>
+        <select class="form-control" id="area">
+            <option value="north">north</option>
+            <option value="south">south</option>
+            <option value="center">center</option>
+        </select>
+    </div>
+    <div class="form-group col-3">
+        <label class="control-label">City</label>
+        <input class="form-control" id="searchTextField" type="text" size="50" placeholder="Enter Israeli City.." />
+    </div>
+    <div class="form-group col-2">
+        <label for="fromPrice">From Price</label>
+        <input type="number" class="form-control" id="fromPrice" placeholder="From Price">
+    </div>
+    <div class="form-group col-2">
+        <label for="toPrice">To Price</label>
+        <input type="number" class="form-control" id="toPrice" placeholder="To Price">
+    </div>
+    <button type="button" class="btn btn-light col-1 advancedSerach"><i class="fas fa-search" aria-hidden="true"></i></button>
+</div>
 <div class="filter-nav">
     <button class="filter-all filterButton" data-filter="all" value="all" name="Locations"> Show All</button>
     <button class="filter filterButton" data-filter="north" value="north" name="Locations"> Notrh</button>
@@ -42,9 +68,29 @@
     <a class="next" asp-controller="Caterings" asp-action="Index">Next &raquo;</a>
 </div>
 
+<input  class="form-control" id="city" type="text" hidden />
+
 
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_Popup");}
     <script src="~/js/dynamicFilter.js"></script>
 }
+
+
+
+
+<script>
+    function initSearch() {
+        var input = document.getElementById("searchTextField");
+        var options = {
+            componentRestrictions: { country: 'il' }
+        };
+
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            document.getElementById("city").value = place.vicinity;
+        });
+    }
+</script>

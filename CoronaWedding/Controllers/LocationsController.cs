@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CoronaWedding.Data;
 using CoronaWedding.Models;
 using Microsoft.AspNetCore.Http;
+using System.Reflection.Metadata.Ecma335;
 
 namespace CoronaWedding.Controllers
 {
@@ -26,7 +27,8 @@ namespace CoronaWedding.Controllers
             List<Location> locations;
             if (id == null || id == "all")
                 locations = await _context.Location.ToListAsync();
-            else {
+            else
+            {
                 var result = from l in _context.Location
                              where l.area.Equals(id)
                              select l;
@@ -37,7 +39,38 @@ namespace CoronaWedding.Controllers
             ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
 
             return View(locations);
+            //var locations = new List<Location>();
+            //if (TempData["filteredLocations"] != null)
+            //{
+            //    locations = TempData["filteredLocations"];
+            //}
+            //else
+            //{
+            //    if (id == null || id == "all")
+            //        locations = await _context.Location.ToListAsync();
+            //    else
+            //    {
+            //        var result = from l in _context.Location
+            //                     where l.area.Equals(id)
+            //                     select l;
+            //        locations = result.ToList();
+
+            //    }
+            //}
+            //string isAdmin = HttpContext.Session.GetString("Type");
+            //ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
+            //return View(locations);
         }
+        public async Task<IActionResult> advancedSerach(string area, string city, double fprice, double tprice)
+        {
+            var result = _context.Location.Where(l =>
+                l.area.Equals(area) && l.city.Contains(city) &&
+                (l.price >= fprice && l.price <= tprice)).ToList();
+
+            TempData["filteredLocations"] = result;
+            return RedirectToAction("Index", "Locations");
+        }
+
 
         // GET: Locations/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -68,7 +101,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LocationId,placeCapacity,supplireEmail,area,city,map,imagePath,price")] Location location)
+        public async Task<IActionResult> Create([Bind("LocationId,placeCapacity,supplireEmail,area,city,map,imagePath,price,Latitude,Longitude")] Location location)
         {
             if (ModelState.IsValid)
             {
@@ -185,5 +218,18 @@ namespace CoronaWedding.Controllers
             }
             return View(await _context.Location.ToListAsync());
         }
+
+        /***************advance search**********************/
+        public IActionResult advanceSearch(string area)
+        {
+            var cities = from c in _context.Location
+                         where c.area.Equals(area)
+                         select c;
+
+            ViewBag.Cities = cities;
+            return View(cities);
+        }
+
+
     }
 }

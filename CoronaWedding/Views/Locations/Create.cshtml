@@ -5,7 +5,7 @@
 }
 
 <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=API&libraries=places&&callback=initSearch"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=APIc&libraries=places&&callback=initSearch"></script>
 
 <h1>Create</h1>
 
@@ -67,7 +67,7 @@
 
 <script>
     function initSearch() {
-        var input = document.getElementById('searchTextField');
+        var input = document.getElementById("searchTextField");
         var options = {
             componentRestrictions: { country: 'il' }
         };
@@ -76,9 +76,9 @@
         google.maps.event.addListener(autocomplete, 'place_changed', function () {
             var place = autocomplete.getPlace();
 
-            document.getElementById('lat').value = place.geometry.location.lat();
-            document.getElementById('lon').value = place.geometry.location.lng();
-            document.getElementById('city').value = place.vicinity;
+            document.getElementById("lat").value = place.geometry.location.lat();
+            document.getElementById("lon").value = place.geometry.location.lng();
+            document.getElementById("city").value = place.vicinity;
         });
     }
 </script>

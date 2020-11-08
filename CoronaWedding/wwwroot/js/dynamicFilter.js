@@ -30,9 +30,12 @@
                 console.log("Error");
         }
 
-    });
-     
+        });
         
+    });
+
+    $(".advancedSerach").click(function () {
+
     });
 
 
