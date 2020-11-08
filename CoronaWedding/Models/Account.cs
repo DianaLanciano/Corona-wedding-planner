@@ -26,10 +26,15 @@ namespace CoronaWedding.Models
         public UserType Type { get; set; }
 
         //for cart
-        public int CateringId { get; set; }
-        public int LocationId { get; set; }
-        public int MusicId { get; set; }
-        public int PhotographerId { get; set; }
+        public int? CateringId { get; set; }
+        public int? LocationId { get; set; }
+        public int? MusicId { get; set; }
+        public int? PhotographerId { get; set; }
+
+        public Catering Catering { get; set; } 
+        public Location Location { get; set; } 
+        public Music Music { get; set; } 
+        public Photographer Photographer { get; set; } 
 
     }
 }

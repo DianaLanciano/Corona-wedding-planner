@@ -30,7 +30,23 @@ namespace CoronaWedding.Controllers
         }
         public async Task<IActionResult> Checkout()
         {
-            return View();
+
+
+            string userId = HttpContext.Session.GetString("userId");
+            var user = _context.Account.Where(a => a.AccountId.ToString() == userId)
+                .Include(c => c.Catering).Include(l => l.Location).Include(m => m.Music)
+                .Include(p => p.Photographer).SingleOrDefault();
+            if (user == null)
+            {
+                return RedirectToAction("Index","Home");
+            }
+
+            ViewBag.LocationPrice = user.Location != null ? user.Location.price : 0;
+            ViewBag.CateringPrice = user.Catering != null ? user.Catering.price : 0;
+            ViewBag.MusicPrice = user.Music != null ? user.Music.price : 0;
+            ViewBag.PhotographerPrice = user.Location != null ? user.Photographer.price : 0;
+            ViewBag.Total = ViewBag.LocationPrice + ViewBag.CateringPrice + ViewBag.MusicPrice + ViewBag.PhotographerPrice;
+            return View(user);
         }
 
         // GET: Accounts/Details/5
