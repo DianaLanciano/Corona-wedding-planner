@@ -1,40 +1,51 @@
-﻿@model IEnumerable<CoronaWedding.Models.Location>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
-@{
-    ViewData["Title"] = "Index";
-}
+@model IEnumerable<CoronaWedding.Models.Location>
+
+@{ ViewData["Title"] = "Index"; }
 
 <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeVQz8DO_TF3uKnMyPx0sduFZEo6x0uMc&libraries=places&&callback=initSearch"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=API&libraries=places&&callback=initSearch"></script>
 
 
 <div class="title">
     <img src="/Media/images/locationLogo.PNG" alt="title" class="img">
 </div>
 <hr>
+
+@if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null)
+{
+    var all = (ViewBag.area == null || ViewBag.area == "all");
+    var north = (ViewBag.area == "north");
+    var south = (ViewBag.area == "south");
+    var center = (ViewBag.area == "center");
+
 <div class="row">
     <div class="form-group col-3">
         <label for="area">Area</label>
         <select class="form-control" id="area">
-            <option value="north">north</option>
-            <option value="south">south</option>
-            <option value="center">center</option>
+            <option value="all" selected="@all">All</option>
+            <option value="north" selected="@north">North</option>
+            <option value="south" selected="@south">South</option>
+            <option value="center" selected="@center">Center</option>
         </select>
     </div>
     <div class="form-group col-3">
         <label class="control-label">City</label>
-        <input class="form-control" id="searchTextField" type="text" size="50" placeholder="Enter Israeli City.." />
+        <input value="@ViewBag.city" class="form-control" id="cityFromUser" type="text" size="50" placeholder="Enter Israeli City.." />
     </div>
     <div class="form-group col-2">
         <label for="fromPrice">From Price</label>
-        <input type="number" class="form-control" id="fromPrice" placeholder="From Price">
+        <input value="@ViewBag.fromPrice" type="number" class="form-control" id="fromPrice" placeholder="From Price">
     </div>
     <div class="form-group col-2">
         <label for="toPrice">To Price</label>
-        <input type="number" class="form-control" id="toPrice" placeholder="To Price">
+        <input value="@ViewBag.toPrice" type="number" class="form-control" id="toPrice" placeholder="To Price">
     </div>
-    <button type="button" class="btn btn-light col-1 advancedSerach"><i class="fas fa-search" aria-hidden="true"></i></button>
-</div>
+    <button type="button" class="btn btn-light col-1 advancedSerachLocation"><i class="fas fa-search" aria-hidden="true"></i></button>
+</div>}
+
 <div class="filter-nav">
     <button class="filter-all filterButton" data-filter="all" value="all" name="Locations"> Show All</button>
     <button class="filter filterButton" data-filter="north" value="north" name="Locations"> Notrh</button>
@@ -44,31 +55,29 @@
 
 @foreach (var item in Model)
 {
-    <div class="responsive-images">
-        <div class="filterDiv">
-            @if (ViewBag.IsAdmin)
-            {
-                <div class="AdminButtons">
-
-                    <a asp-controller="Locations" asp-action="Edit" asp-route-id="@item.LocationId">Edit</a>
-                    <a asp-controller="Locations" asp-action="Delete" asp-route-id="@item.LocationId">Delete</a>
-                </div>
-            }
-            <img id=@item.LocationId src="@item.imagePath" class="imageFilter" name="Locations">
-            <h5 dir="rtl">Email: @item.supplireEmail</h5>
-            <h5 dir="rtl">Place capacity: @item.placeCapacity</h5>
-            <h5 dir="rtl">Price: @item.price</h5>
-            <button class="buttonForSite addToCartButoon" id=@item.LocationId name="Location">
-                Add To Cart
-            </button>
-        </div>
-    </div>}
+<div class="responsive-images">
+    <div class="filterDiv">
+        @if (ViewBag.IsAdmin)
+        {
+<div class="AdminButtons">
+    <a class="edit" asp-controller="Locations" asp-action="Edit" asp-route-id="@item.LocationId"><i class="fas fa-edit" /></a>
+    <a class="delete" asp-controller="Locations" asp-action="Delete" asp-route-id="@item.LocationId"><i class="fas fa-trash-alt" /></a>
+</div>}
+        <img id=@item.LocationId src="@item.imagePath" class="imageFilter" name="Locations">
+        <h5 dir="rtl">Email: @item.supplireEmail</h5>
+        <h5 dir="rtl">Place capacity: @item.placeCapacity</h5>
+        <h5 dir="rtl">Price: @item.price</h5>
+        <button class="buttonForSite addToCartButoon" id=@item.LocationId name="Location">
+            Add To Cart
+        </button>
+    </div>
+</div>}
 <div class="prevAndNext">
     <a class="previous" asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
     <a class="next" asp-controller="Caterings" asp-action="Index">Next &raquo;</a>
 </div>
 
-<input  class="form-control" id="city" type="text" hidden />
+<input class="form-control" id="city" type="text" hidden />
 
 
 
@@ -82,7 +91,7 @@
 
 <script>
     function initSearch() {
-        var input = document.getElementById("searchTextField");
+        var input = document.getElementById("cityFromUser");
         var options = {
             componentRestrictions: { country: 'il' }
         };

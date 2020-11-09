@@ -34,9 +34,36 @@
         
     });
 
-    $(".advancedSerach").click(function () {
+
+    //advanced serach
+    $(".advancedSerachLocation").click(function () {
+       
+        let area = document.getElementById("area").value;
+        let city = document.getElementById("city").value;
+        let fromPrice = document.getElementById("fromPrice").value;
+        let toPrice = document.getElementById("toPrice").value;
+
+        window.location.replace("/Locations/Index?area=" + area + "&city=" +
+            city + "&fprice=" + fromPrice + "&tprice=" + toPrice + "&filtered=true");
+    });
+    //(string? foodType,string? kosher,double? fprice, double? tprice)
+    $(".advancedSerachCatering").click(function () {
+        let type = document.getElementById("foodType").value;
+        let isKosher = document.getElementById("Kosher").value;
+        let fromPrice = document.getElementById("fromPrice").value;
+        let toPrice = document.getElementById("toPrice").value;
+
+        window.location.replace("/Caterings/Index?foodType=" + type +
+            "&kosher=" + isKosher + "&fprice=" + fromPrice +
+            "&tprice=" + toPrice + "&filtered=true");
+
 
     });
+
+
+
+
+
 
 
 });

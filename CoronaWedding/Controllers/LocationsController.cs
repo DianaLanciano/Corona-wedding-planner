@@ -9,6 +9,7 @@ using CoronaWedding.Data;
 using CoronaWedding.Models;
 using Microsoft.AspNetCore.Http;
 using System.Reflection.Metadata.Ecma335;
+using Newtonsoft.Json;
 
 namespace CoronaWedding.Controllers
 {
@@ -21,57 +22,55 @@ namespace CoronaWedding.Controllers
             _context = context;
         }
 
-        // GET: Locations
-        public async Task<IActionResult> Index(string? id)
+        // GET: Locations(also advance search)
+        public async Task<IActionResult> Index(string? id, string? area, string? city, double? fprice, double? tprice, bool? filtered)
         {
-            List<Location> locations;
-            if (id == null || id == "all")
-                locations = await _context.Location.ToListAsync();
+            List<Location> locations = _context.Location.ToList();
+            if (filtered != null)
+            {
+                if (area != null)
+                {
+                    locations = locations.Where(l => l.area.Equals(area)).ToList();
+                }
+                if (city != null)
+                {
+                    locations = locations.Where(l => l.city.Equals(city)).ToList();
+                }
+                if (city != null)
+                {
+                    locations = locations.Where(l => l.city.Equals(city)).ToList();
+                }
+                if (fprice != null)
+                {
+                    locations = locations.Where(c => c.price >= fprice).ToList();
+                }
+                if (tprice != null)
+                {
+                    locations = locations.Where(c => c.price <= tprice).ToList();
+                }
+            }
             else
             {
-                var result = from l in _context.Location
-                             where l.area.Equals(id)
-                             select l;
-                locations = result.ToList();
+                if (id == null || id == "all")
+                    locations = await _context.Location.ToListAsync();
+                else
+                {
+                    var result = from l in _context.Location
+                                 where l.area.Equals(id)
+                                 select l;
+                    locations = result.ToList();
+                }
             }
-
             string isAdmin = HttpContext.Session.GetString("Type");
             ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
 
+            ViewBag.area = area;
+            ViewBag.city = city;
+            ViewBag.fromPrice = fprice;
+            ViewBag.toPrice = tprice;
+
             return View(locations);
-            //var locations = new List<Location>();
-            //if (TempData["filteredLocations"] != null)
-            //{
-            //    locations = TempData["filteredLocations"];
-            //}
-            //else
-            //{
-            //    if (id == null || id == "all")
-            //        locations = await _context.Location.ToListAsync();
-            //    else
-            //    {
-            //        var result = from l in _context.Location
-            //                     where l.area.Equals(id)
-            //                     select l;
-            //        locations = result.ToList();
-
-            //    }
-            //}
-            //string isAdmin = HttpContext.Session.GetString("Type");
-            //ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
-            //return View(locations);
         }
-        public async Task<IActionResult> advancedSerach(string area, string city, double fprice, double tprice)
-        {
-            var result = _context.Location.Where(l =>
-                l.area.Equals(area) && l.city.Contains(city) &&
-                (l.price >= fprice && l.price <= tprice)).ToList();
-
-            TempData["filteredLocations"] = result;
-            return RedirectToAction("Index", "Locations");
-        }
-
-
         // GET: Locations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -93,6 +92,14 @@ namespace CoronaWedding.Controllers
         // GET: Locations/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("userId") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 

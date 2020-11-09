@@ -7,35 +7,64 @@
 <div class="title">
     <img src="/Media/images/checkoutLogo.PNG" alt="title" class="img">
 </div>
-<h4>Purchase summary:</h4>
 <hr />
 
+<div class="why_us_section">
+    <div class="col-lg-4 col-md-6 mx-auto">
+        <div class="box">
+            <div class="img-box">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="detail-box">
+                <h4>Purchase summary:</h4>
+                <hr />
+                <p>
+                    @if (@ViewBag.LocationPrice != 0)
+                    {
+                        <h5>Location: @ViewBag.LocationPrice$</h5>
+                    }
+                    @if (@ViewBag.CateringPrice != 0)
+                    {
+                        <h5>Catering: @ViewBag.CateringPrice$</h5>
+                    }
+                    @if (@ViewBag.MusicPrice != 0)
+                    {
+                        <h5>Music: @ViewBag.MusicPrice$</h5>
+                    }
+                    @if (@ViewBag.PhotographerPrice != 0)
+                    {
+                        <h5>Photographer: @ViewBag.PhotographerPrice</h5>
+                    }
+                    <hr />
+                    <h5>Total price: @ViewBag.Total$</h5>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h5>Location:@ViewBag.LocationPrice</h5>
-<h5>Catering:@ViewBag.CateringPrice</h5>
-<h5>Music:@ViewBag.MusicPrice</h5>
-<h5>Photographer:@ViewBag.PhotographerPrice</h5>
-<h5>Total price:@ViewBag.Total</h5>
 
 <aside>
     <h4>Epcot Center</h4>
-    <p>Epcot is a theme park at It is 
-    a long established fact that a reader 
-    will be distracted by the readable content 
-    of a page when looking at its layout. 
-    The point of using Lorem Ipsum is that it
-    has a more-or-less normal distribution of 
-    letters, as opposed to using 'Content here, content here',
-    making it look like readable English. Many desktop publishing 
-    packages and web page editors now use Lorem Ipsum as their default model 
-    text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
-    Various versions have evolved over the years, sometimes by accident, sometimes on purpose 
-    (injected humour and the like). Walt reworks and seasonal special events.</p>
+    <p>
+        Epcot is a theme park at It is
+        a long established fact that a reader
+        will be distracted by the readable content
+        of a page when looking at its layout.
+        The point of using Lorem Ipsum is that it
+        has a more-or-less normal distribution of
+        letters, as opposed to using 'Content here, content here',
+        making it look like readable English. Many desktop publishing
+        packages and web page editors now use Lorem Ipsum as their default model
+        text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+        Various versions have evolved over the years, sometimes by accident, sometimes on purpose
+        (injected humour and the like). Walt reworks and seasonal special events.
+    </p>
 </aside>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CQq51HfgxAA" 
- frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CQq51HfgxAA"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write;
   encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 

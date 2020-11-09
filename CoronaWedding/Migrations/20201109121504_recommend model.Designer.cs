@@ -4,14 +4,16 @@ using CoronaWedding.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoronaWedding.Migrations
 {
     [DbContext(typeof(WeddingCoronaContext))]
-    partial class WeddingCoronaContextModelSnapshot : ModelSnapshot
+    [Migration("20201109121504_recommend model")]
+    partial class recommendmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,9 +73,6 @@ namespace CoronaWedding.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Kosher")
-                        .HasColumnType("int");
 
                     b.Property<string>("foodType")
                         .HasColumnType("nvarchar(max)");

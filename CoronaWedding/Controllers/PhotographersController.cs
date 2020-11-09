@@ -23,9 +23,51 @@ namespace CoronaWedding.Controllers
         // GET: Photographers
         public async Task<IActionResult> Index()
         {
+            if (HttpContext.Session.GetString("userId") != null)
+            {
+                string userId = HttpContext.Session.GetString("userId");
+                var userAccount = _context.Account.Where(a => a.AccountId.ToString() == userId).FirstOrDefault();
+                var r = this.recommennded(userAccount);
+                var sortedDict = (from entry in r orderby entry.Value.score descending select entry.Value).Take(3).ToList();
+                ViewBag.recommended = sortedDict;
+            }
             string isAdmin = HttpContext.Session.GetString("Type");
             ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
             return View(await _context.Photographer.ToListAsync());
+        }
+        /***************Recommended**********************/
+        public Dictionary<string, Recommend> recommennded(Account account)
+        {
+            Dictionary<string, Recommend> recommended = new Dictionary<string, Recommend>();
+            var users = _context.Account.Include(p => p.Photographer);
+            foreach (Account u in users)
+            {
+                if (u.PhotographerId != null)
+                {
+                    string photoKey = u.PhotographerId.ToString();
+                    int score = 0;
+
+                    if (u.LocationId == account.LocationId)
+                    { score++; }
+                    if (u.CateringId == account.CateringId)
+                    { score++; }
+                    if (u.MusicId == account.MusicId)
+                    { score++; }
+
+                    if (recommended.ContainsKey(photoKey))
+                    {
+                        recommended[photoKey].score += score;
+                    }
+                    else
+                    {
+                        if (score != 0)
+                        {
+                            recommended.Add(photoKey, new Recommend() { score = score, Photographer = u.Photographer });
+                        }
+                    }
+                }
+            }
+            return recommended;
         }
 
         // GET: Photographers/Details/5
@@ -50,6 +92,14 @@ namespace CoronaWedding.Controllers
         // GET: Photographers/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("userId") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -174,6 +224,14 @@ namespace CoronaWedding.Controllers
                 return RedirectToAction("Login", "Accounts");
             }
             return View(await _context.Photographer.ToListAsync());
+
+
+
         }
+
+
+
+        
+       
     }
 }

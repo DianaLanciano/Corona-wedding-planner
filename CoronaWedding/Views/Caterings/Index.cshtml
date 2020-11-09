@@ -1,4 +1,7 @@
-﻿@model IEnumerable<CoronaWedding.Models.Catering>
+﻿
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model IEnumerable<CoronaWedding.Models.Catering>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,6 +11,37 @@
     <img src="/Media/images/cateringLogo.PNG" alt="title" class="img">
 </div>
 <hr>
+@if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null)
+{
+    <div class="row">
+        <div class="form-group col-3">
+            <label for="foodType">Food Type</label>
+            <select class="form-control" id="foodType">
+                <option value="all" selected="selected">All</option>
+                <option value="asian">Asian</option>
+                <option value="meaty">Meaty</option>
+                <option value="vegan">Vegan</option>
+            </select>
+        </div>
+        <div class="form-group col-3">
+            <label class="control-label">Kosher</label>
+            <select class="form-control" id="Kosher">
+                <option value="all" selected="selected">All</option>
+                <option value="@true">Yes</option>
+                <option value="@false">No</option>
+            </select>
+        </div>
+        <div class="form-group col-2">
+            <label for="fromPrice">From Price</label>
+            <input type="number" class="form-control" id="fromPrice" placeholder="From Price">
+        </div>
+        <div class="form-group col-2">
+            <label for="toPrice">To Price</label>
+            <input type="number" class="form-control" id="toPrice" placeholder="To Price">
+        </div>
+        <button type="button" class="btn btn-light col-1 advancedSerachCatering"><i class="fas fa-search" aria-hidden="true"></i></button>
+    </div>
+}
 
 <div class="filter-nav">
     <button class="filter-all filterButton" data-filter="all" value="all" name="Caterings"> Show All</button>
@@ -23,8 +57,8 @@
             @if (ViewBag.IsAdmin)
             {
                 <div class="AdminButtons">
-                    <a asp-controller="Locations" asp-action="Edit" asp-route-id="@item.CateringId">Edit</a>
-                    <a asp-controller="Locations" asp-action="Delete" asp-route-id="@item.CateringId">Delete</a>
+                    <a class="edit" asp-controller="Caterings" asp-action="Edit" asp-route-id="@item.CateringId"><i class="fas fa-edit"></i></a>
+                    <a class="delete" asp-controller="Caterings" asp-action="Delete" asp-route-id="@item.CateringId"><i class="fas fa-trash-alt"></i></a>
                 </div>
             }
             <img id=@item.CateringId src="@item.imagePath" class="imageFilter" name="Caterings">
@@ -39,8 +73,8 @@
     </div>
 }
 <div class="prevAndNext">
-    <a class="previous"  asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
-    <a class="next"  asp-controller="Music" asp-action="Index">Next &raquo;</a>
+    <a class="previous" asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
+    <a class="next" asp-controller="Music" asp-action="Index">Next &raquo;</a>
 </div>
 
 

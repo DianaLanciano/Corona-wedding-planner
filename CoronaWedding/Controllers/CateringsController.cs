@@ -22,22 +22,48 @@ namespace CoronaWedding.Controllers
         }
 
         // GET: Caterings
-        public async Task<IActionResult> Index(string? id)
+        public async Task<IActionResult> Index(string? id, string? foodType, bool? kosher, double? fprice, double? tprice, bool? filtered)
         {
-            List<Catering> caterings;
-            if (id == null || id == "all")
-                caterings = await _context.Catering.ToListAsync();
-            else {
-                var result = from c in _context.Catering
-                             where c.foodType.Equals(id)
-                             select c;
-                caterings = result.ToList();
+            List<Catering> caterings = _context.Catering.ToList();
+            if (filtered != null)
+            {
+                //Advance search
+                if (foodType != null)
+                {
+                    caterings = caterings.Where(c => c.foodType.Equals(foodType)).ToList();
+                }
+                if (kosher != null)
+                {
+                    caterings = caterings.Where(c => c.Kosher == kosher).ToList();
+                }
+                if (fprice != null)
+                {
+                    caterings = caterings.Where(c => c.price >= fprice).ToList();
+                }
+                if (tprice != null)
+                {
+                    caterings = caterings.Where(c => c.price <= tprice).ToList();
+                }
             }
+            else {
+                if (id == null || id == "all")
+                    caterings = await _context.Catering.ToListAsync();
+                else
+                {
+                    var result = from c in _context.Catering
+                                 where c.foodType.Equals(id)
+                                 select c;
+                    caterings = result.ToList();
+                }
+                
+            }
+
             string isAdmin = HttpContext.Session.GetString("Type");
             ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
-
             return View(caterings);
         }
+        
+     
 
         // GET: Caterings/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -58,9 +84,17 @@ namespace CoronaWedding.Controllers
         }
 
         // GET: Caterings/Create
-        
+
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("userId") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 

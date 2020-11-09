@@ -18,5 +18,6 @@ namespace CoronaWedding.Models
         public int price { get; set; }
         [DisplayName("Image Adress")]
         public string imagePath { get; set; }
+        public bool Kosher { get; set; }
     }
 }

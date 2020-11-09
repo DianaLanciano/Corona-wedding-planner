@@ -7,10 +7,6 @@
     <img src="/Media/images/musicLogo.PNG" alt="title" class="img">
 </div>
 <hr>
-@if (ViewBag.IsAdmin)
-{
-    <a class="btn btn btn-light btn-lg" asp-controller="Music" asp-action="Create">Add Item</a>
-}
 <div class="filter-nav">
     <button class="filter-all filterButton" data-filter="all" value="all" name="Music"> Show All</button>
     <button class="filter filterButton" data-filter="band" value="band" name="Music">  Live Band</button>
@@ -25,8 +21,8 @@
             @if (ViewBag.IsAdmin)
             {
                 <div class="AdminButtons">
-                    <a asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId">Edit</a>
-                    <a asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId">Delete</a>
+                    <a class="edit" asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId"><i class="fas fa-edit"/></a>
+                    <a class="delete" asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId"><i class="fas fa-trash-alt" /></a>
                 </div>
             }
             <img id=@item.MusicId src="@item.imagePath" class="imageFilter" name="Music">

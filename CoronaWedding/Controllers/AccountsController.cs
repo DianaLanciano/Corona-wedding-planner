@@ -28,9 +28,13 @@ namespace CoronaWedding.Controllers
         {
             return View(await _context.Account.ToListAsync());
         }
-        public async Task<IActionResult> Checkout()
+        public IActionResult Checkout()
         {
 
+            if (HttpContext.Session.GetString("Type") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
 
             string userId = HttpContext.Session.GetString("userId");
             var user = _context.Account.Where(a => a.AccountId.ToString() == userId)
@@ -41,10 +45,11 @@ namespace CoronaWedding.Controllers
                 return RedirectToAction("Index","Home");
             }
 
+          
             ViewBag.LocationPrice = user.Location != null ? user.Location.price : 0;
             ViewBag.CateringPrice = user.Catering != null ? user.Catering.price : 0;
             ViewBag.MusicPrice = user.Music != null ? user.Music.price : 0;
-            ViewBag.PhotographerPrice = user.Location != null ? user.Photographer.price : 0;
+            ViewBag.PhotographerPrice = user.Photographer != null ? user.Photographer.price : 0;
             ViewBag.Total = ViewBag.LocationPrice + ViewBag.CateringPrice + ViewBag.MusicPrice + ViewBag.PhotographerPrice;
             return View(user);
         }
@@ -71,6 +76,14 @@ namespace CoronaWedding.Controllers
         // GET: Accounts/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("userId") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -274,7 +287,7 @@ namespace CoronaWedding.Controllers
             if (user != null)
             {
                 SignIn(user);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Locations");
             }
 
 

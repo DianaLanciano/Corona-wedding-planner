@@ -62,6 +62,14 @@ namespace CoronaWedding.Controllers
         // GET: Music/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("userId") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            if (!HttpContext.Session.GetString("Type").Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
