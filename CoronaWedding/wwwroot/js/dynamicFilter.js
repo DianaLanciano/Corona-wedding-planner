@@ -46,7 +46,7 @@
         window.location.replace("/Locations/Index?area=" + area + "&city=" +
             city + "&fprice=" + fromPrice + "&tprice=" + toPrice + "&filtered=true");
     });
-    //(string? foodType,string? kosher,double? fprice, double? tprice)
+    
     $(".advancedSerachCatering").click(function () {
         let type = document.getElementById("foodType").value;
         let isKosher = document.getElementById("Kosher").value;
@@ -56,8 +56,6 @@
         window.location.replace("/Caterings/Index?foodType=" + type +
             "&kosher=" + isKosher + "&fprice=" + fromPrice +
             "&tprice=" + toPrice + "&filtered=true");
-
-
     });
 
 

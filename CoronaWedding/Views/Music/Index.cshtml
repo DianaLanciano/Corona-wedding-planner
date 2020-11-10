@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 <div class="title">
-    <img src="/Media/images/musicLogo.PNG" alt="title" class="img">
+    <img src="/Media/images/musicLogo.PNG" alt="title" class="rounded mx-auto d-block">
 </div>
 <hr>
 <div class="filter-nav">
@@ -20,24 +20,51 @@
         <div class="filterDiv">
             @if (ViewBag.IsAdmin)
             {
-                <div class="AdminButtons">
-                    <a class="edit" asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId"><i class="fas fa-edit"/></a>
-                    <a class="delete" asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId"><i class="fas fa-trash-alt" /></a>
+                <div class="row">
+                    <a class="edit" asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId"><i class="fas fa-edit"></i></a>
+                    <a class="delete" asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId"><i class="fas fa-trash-alt"></i></a>
                 </div>
             }
-            <img id=@item.MusicId src="@item.imagePath" class="imageFilter" name="Music">
-            <h5 dir="rtl">Email: @item.supplireEmail</h5>
-            <h5 dir="rtl">Music Type: @item.musicType</h5>
-            <h5 dir="rtl">Price: @item.price</h5>
-            <button class="buttonForSite addToCartButoon" id=@item.MusicId name="Music">
-                Add To Cart
-            </button>
+
+            <div class="row">
+                <div class="col">
+                    <img id=@item.MusicId src="@item.imagePath" class="imageFilter" name="Music">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 dir="rtl">Email:<br /> @item.supplireEmail</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 dir="rtl">Music Type: @item.musicType</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 dir="rtl">Price: @item.price</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="buttonForSite addToCartButoon" id=@item.MusicId name="Music">
+                        Add To Cart
+                    </button>
+                </div>
+            </div>
         </div>
     </div>}
-<div class="prevAndNext">
-    <a class="previous" asp-controller="Caterings" asp-action="Index">&laquo; Previous</a>
-    <a class="next" asp-controller="Photographers" asp-action="Index">Next &raquo;</a>
+
+<div class="row">
+    <div class="row prevAndNext">
+        <div class="col align-self-center">
+            <a class="previous" asp-controller="Caterings" asp-action="Index">&laquo; Previous</a>
+            <a class="next" asp-controller="Photographers" asp-action="Index">Next &raquo;</a>
+        </div>
+    </div>
 </div>
+
 
 
 

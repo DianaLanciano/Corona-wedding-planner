@@ -7,14 +7,15 @@
 <div class="row">
     <div class="col-md-7">
         <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0 imgDet" src="@Model.imagePath">
+            <img class="img-fluid rounded mb-3 mb-md-0 imgDet" src="@Model.imagePath" width="500" height="600" style="vertical-align:bottom">
         </a>
     </div>
     <div class="col-md-5 textDetails">
         <h3>@Model.foodType</h3>
         <p>Email: @Model.supplireEmail</p>
         <p>Pricr: @Model.price$</p>
-        <p>Kosher:@Model.Kosher</p>
+        @{ if (@Model.Kosher == true) {<p>Kosher: Yes</p>} else {<p>Kosher: No</p>} }
+
 
         <button class="buttonForSite addToCartButoon" id=@Model.CateringId name="Catering">Add To Cart</button>
 

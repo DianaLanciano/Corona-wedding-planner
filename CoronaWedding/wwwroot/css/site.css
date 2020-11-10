@@ -120,9 +120,8 @@ Button design
 Next and Previous buttons                                                          
 /*********************************************************************************/
 .prevAndNext {
-    margin-left: 45%;
-    position: relative;
-    margin-top: 100%;
+   /* margin-left: 45%;*/
+  /*  margin-top: 100%;*/
 }
 
 .previous {
@@ -146,14 +145,12 @@ Next and Previous buttons
     padding: 8px 16px;
 }
 
-    .next:hover {
+.next:hover {
         background-color: #ddd;
         color: black;
-    }
 
-.round {
-    border-radius: 50%;
 }
+
 
 
 /*********************************************************************************
@@ -198,17 +195,15 @@ Footer
     height: auto;
 }
 
-.title {
+/*.title {
     margin-left: 350px;
     width: 50%;
     height: auto;
-}
+}*/
 
-    .title img {
-        width: 60%;
-        height: auto;
-        margin-left: 6%;
-    }
+.title img {
+     width: 30%;
+ }
 
 .titleDE img {
     height: auto;
@@ -312,7 +307,7 @@ text-center {
     margin: 2px;
     vertical-align: middle;
     width: 273px;
-    height: 500px;
+    height: 450px;
     position: relative;
     border: ridge;
 }
@@ -333,9 +328,9 @@ text-center {
     padding: 3px;
 }
 
-.filterDiv .buttonForSite {
+/*.filterDiv .buttonForSite {
     margin-top: 55px;
-}
+}*/
 
 .filterDiv {
     color: pink;
@@ -392,21 +387,13 @@ text-center {
 /*********************************************************************************
  Admin buttons in each model (edit/create/delete)                                                     
 /**********************************************************************************/
-.AdminButtons {
-    width: 100px;
-    height: 60px;
-    padding: 2px;
-}
-.AdminButton a {
-    padding: 3px;
-    margin:3px;
-
-}
 .delete {
-    float: right;
+  margin-left: 80%;
 }
-   
+.edit {
+    margin-left: 5%;
 }
+
 /*********************************************************************************
  box design                                                     
 /**********************************************************************************/

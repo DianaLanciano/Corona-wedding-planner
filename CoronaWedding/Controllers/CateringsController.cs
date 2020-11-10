@@ -60,6 +60,13 @@ namespace CoronaWedding.Controllers
 
             string isAdmin = HttpContext.Session.GetString("Type");
             ViewBag.IsAdmin = isAdmin != null && isAdmin.Equals("Admin");
+
+            ViewBag.foodType = foodType;
+            ViewBag.kosher = kosher;
+            ViewBag.fromPrice = fprice;
+            ViewBag.toPrice = tprice;
+
+
             return View(caterings);
         }
         

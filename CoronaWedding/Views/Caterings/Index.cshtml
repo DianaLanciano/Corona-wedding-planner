@@ -8,36 +8,46 @@
 }
 
 <div class="title">
-    <img src="/Media/images/cateringLogo.PNG" alt="title" class="img">
+    <img src="/Media/images/cateringLogo.PNG" alt="title" class="rounded mx-auto d-block">
 </div>
 <hr>
 @if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null)
 {
+
+    var allFoodType = (ViewBag.area == null || ViewBag.area == "all");
+    var asianFood = (ViewBag.foodType == "asian");
+    var meatyFood = (ViewBag.foodType == "meaty");
+    var veganFood = (ViewBag.foodType == "vegan");
+    var isKosher = (ViewBag.area == null || ViewBag.area == "all");
+    var noKosher = (ViewBag.kosher == false);
+    var yesKosher = (ViewBag.kosher == true);
+
+
     <div class="row">
         <div class="form-group col-3">
             <label for="foodType">Food Type</label>
             <select class="form-control" id="foodType">
-                <option value="all" selected="selected">All</option>
-                <option value="asian">Asian</option>
-                <option value="meaty">Meaty</option>
-                <option value="vegan">Vegan</option>
+                <option value="all" selected="@allFoodType">All</option>
+                <option value="asian" selected="@asianFood">Asian</option>
+                <option value="meaty" selected="@meatyFood">Meaty</option>
+                <option value="vegan" selected="@veganFood">Vegan</option>
             </select>
         </div>
         <div class="form-group col-3">
             <label class="control-label">Kosher</label>
             <select class="form-control" id="Kosher">
-                <option value="all" selected="selected">All</option>
-                <option value="@true">Yes</option>
-                <option value="@false">No</option>
+                <option value="all" selected="@isKosher">All</option>
+                <option value="@true" selected="@yesKosher">Yes</option>
+                <option value="@false" selected="@noKosher">No</option>
             </select>
         </div>
         <div class="form-group col-2">
             <label for="fromPrice">From Price</label>
-            <input type="number" class="form-control" id="fromPrice" placeholder="From Price">
+            <input value="@ViewBag.fromPrice" type="number" class="form-control" id="fromPrice" placeholder="From Price">
         </div>
         <div class="form-group col-2">
             <label for="toPrice">To Price</label>
-            <input type="number" class="form-control" id="toPrice" placeholder="To Price">
+            <input value="@ViewBag.toPrice" type="number" class="form-control" id="toPrice" placeholder="To Price">
         </div>
         <button type="button" class="btn btn-light col-1 advancedSerachCatering"><i class="fas fa-search" aria-hidden="true"></i></button>
     </div>
@@ -56,25 +66,51 @@
         <div class="filterDiv">
             @if (ViewBag.IsAdmin)
             {
-                <div class="AdminButtons">
+                <div class="row">
                     <a class="edit" asp-controller="Caterings" asp-action="Edit" asp-route-id="@item.CateringId"><i class="fas fa-edit"></i></a>
                     <a class="delete" asp-controller="Caterings" asp-action="Delete" asp-route-id="@item.CateringId"><i class="fas fa-trash-alt"></i></a>
                 </div>
             }
-            <img id=@item.CateringId src="@item.imagePath" class="imageFilter" name="Caterings">
-            <h5 class="mail">Email: @item.supplireEmail</h5>
-            <h5 class="mail">Food Type: @item.foodType</h5>
-            <h5>Pricr: @item.price$</h5>
-            <button class="buttonForSite addToCartButoon" id=@item.CateringId name="Catering">
-                Add To Cart
-            </button>
-
+            <div class="row">
+                <div class="col">
+                    <img id=@item.CateringId src="@item.imagePath" class="imageFilter" name="Caterings">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 class="mail">Email:<br /> @item.supplireEmail</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 class="mail">Food Type: @item.foodType</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5>Pricr: @item.price$</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="buttonForSite addToCartButoon" id=@item.CateringId name="Catering">
+                        Add To Cart
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 }
-<div class="prevAndNext">
-    <a class="previous" asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
-    <a class="next" asp-controller="Music" asp-action="Index">Next &raquo;</a>
+
+
+
+<div class="row">
+    <div class="row prevAndNext">
+        <div class="col align-self-center">
+            <a class="previous" asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
+            <a class="next" asp-controller="Caterings" asp-action="Index">Next &raquo;</a>
+        </div>
+    </div>
 </div>
 
 
