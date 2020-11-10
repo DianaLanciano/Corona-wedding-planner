@@ -32,7 +32,7 @@ body {
 .textAboutSite {
     display: flex;
     text-align: center;
-    font-size: large;
+    font-size: x-large;
     font-weight: bold;
     justify-content: center;
 }
@@ -212,13 +212,13 @@ Footer
 }
 
 aside {
-    width: 30%;
+   /* width: 30%;
     padding-left: 15px;
     margin-left: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 10px;*/
     float: right;
     font-style: italic;
-    background-color: lightgray;
+    /*background-color: lightgray;*/
 }
 
 /*********************************************************************************

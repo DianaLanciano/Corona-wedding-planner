@@ -282,16 +282,18 @@ namespace CoronaWedding.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
+            if (email == null || password == null)
+            {
+                ViewData["error"] = "Email or password are empty";
+                return View();
+            }
             var user = _context.Account.FirstOrDefault(u => u.Email == email && u.password == password);
-
             if (user != null)
             {
                 SignIn(user);
                 return RedirectToAction("Index", "Locations");
             }
 
-
-            //in case user is null
             ViewData["error"] = "Email not exist";
             return View();
         }

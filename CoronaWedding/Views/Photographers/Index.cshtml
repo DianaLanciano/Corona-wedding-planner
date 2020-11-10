@@ -15,6 +15,7 @@
 
 @foreach (Recommend entry in ViewBag.recommended)
 {
+
 <div class="why_us_section">
     <div class="col-lg-4 col-md-6 mx-auto col-3">
         <div class="box">
@@ -23,7 +24,7 @@
             </div>
             <div class="detail-box">
                 <h5>
-                    Recommended Just For You!
+                    Recommended For You!
                 </h5>
                 <p>
                     <h5>Email: @entry.Photographer.supplireEmail</h5>
@@ -43,10 +44,10 @@
     <div class="filterDiv">
         @if (ViewBag.IsAdmin)
         {
-    <div class="row">
-        <a class="edit" asp-controller="Photographers" asp-action="Edit" asp-route-id="@item.PhotographerId"><i class="fas fa-edit"></i></a>
-        <a class="delete" asp-controller="Photographers" asp-action="Delete" asp-route-id="@item.PhotographerId"><i class="fas fa-trash-alt"></i></a>
-    </div>}
+<div class="row">
+    <a class="edit" asp-controller="Photographers" asp-action="Edit" asp-route-id="@item.PhotographerId"><i class="fas fa-edit"></i></a>
+    <a class="delete" asp-controller="Photographers" asp-action="Delete" asp-route-id="@item.PhotographerId"><i class="fas fa-trash-alt"></i></a>
+</div>}
 
 
         <div class="row">
