@@ -2,7 +2,7 @@
 [
   {
     "foodType": "asian",
-    "supplireEmail": "ruben.@typepad.com",
+    "supplierEmail": "ruben.@typepad.com",
     "price": 1250,
     "imagePath": "https://media-cdn.tripadvisor.com/media/photo-s/11/a6/21/e3/img-20180101-wa0001-largejpg.jpg",
     "Kosher": false

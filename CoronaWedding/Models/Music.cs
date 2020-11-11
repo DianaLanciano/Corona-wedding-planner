@@ -11,7 +11,7 @@ namespace CoronaWedding.Models
     {
         public int MusicId { get; set; }
         [DisplayName("Supplire Email")]
-        public string supplireEmail { get; set; }
+        public string supplierEmail { get; set; }
         [DisplayName("Music Type")]
         public string musicType { get; set; }//Dj, Singer, LiveBand
         [DisplayName("Image Adress")]

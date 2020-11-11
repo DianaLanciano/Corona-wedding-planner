@@ -14,7 +14,7 @@ namespace CoronaWedding.Models
         [DisplayName("Place Cpacity")]
         public int placeCapacity { get; set; }
         [DisplayName("Supplire Email")]
-        public string supplireEmail { get; set; }
+        public string supplierEmail { get; set; }
         [DisplayName("Area")]
         public string area { get; set; }
         [DisplayName("City")]

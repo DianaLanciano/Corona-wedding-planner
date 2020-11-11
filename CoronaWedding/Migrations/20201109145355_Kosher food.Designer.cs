@@ -86,7 +86,7 @@ namespace CoronaWedding.Migrations
                     b.Property<int>("price")
                         .HasColumnType("int");
 
-                    b.Property<string>("supplireEmail")
+                    b.Property<string>("supplierEmail")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CateringId");
@@ -122,7 +122,7 @@ namespace CoronaWedding.Migrations
                     b.Property<double>("price")
                         .HasColumnType("float");
 
-                    b.Property<string>("supplireEmail")
+                    b.Property<string>("supplierEmail")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LocationId");
@@ -149,7 +149,7 @@ namespace CoronaWedding.Migrations
                     b.Property<int>("price")
                         .HasColumnType("int");
 
-                    b.Property<string>("supplireEmail")
+                    b.Property<string>("supplierEmail")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MusicId");
@@ -170,7 +170,7 @@ namespace CoronaWedding.Migrations
                     b.Property<double>("price")
                         .HasColumnType("float");
 
-                    b.Property<string>("supplireEmail")
+                    b.Property<string>("supplierEmail")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PhotographerId");

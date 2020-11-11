@@ -10,7 +10,7 @@ namespace CoronaWedding.Models
     {
         public int PhotographerId { get; set; }
         [DisplayName("Supplire Email")]
-        public string supplireEmail { get; set; }
+        public string supplierEmail { get; set; }
         [DisplayName("Image Adress")]
         public string imagePath { get; set; }
         public double price { get; set; }

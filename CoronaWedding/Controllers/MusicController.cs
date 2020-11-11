@@ -78,7 +78,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MusicId,musicType,supplireEmail,price,imagePath")] Music music)
+        public async Task<IActionResult> Create([Bind("MusicId,musicType,supplierEmail,price,imagePath")] Music music)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MusicId,musicType,supplireEmail,price,imagePath")] Music music)
+        public async Task<IActionResult> Edit(int id, [Bind("MusicId,musicType,supplierEmail,price,imagePath")] Music music)
         {
             if (id != music.MusicId)
             {

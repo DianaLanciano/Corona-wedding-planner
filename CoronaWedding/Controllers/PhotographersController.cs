@@ -108,7 +108,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PhotographerId,supplireEmail,imagePath,price")] Photographer photographer)
+        public async Task<IActionResult> Create([Bind("PhotographerId,supplierEmail,imagePath,price")] Photographer photographer)
         {
             if (ModelState.IsValid)
             {
@@ -140,7 +140,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PhotographerId,supplireEmail,imagePath,price")] Photographer photographer)
+        public async Task<IActionResult> Edit(int id, [Bind("PhotographerId,supplierEmail,imagePath,price")] Photographer photographer)
         {
             if (id != photographer.PhotographerId)
             {

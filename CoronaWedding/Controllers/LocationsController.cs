@@ -108,7 +108,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LocationId,placeCapacity,supplireEmail,area,city,map,imagePath,price,Latitude,Longitude")] Location location)
+        public async Task<IActionResult> Create([Bind("LocationId,placeCapacity,supplierEmail,area,city,map,imagePath,price,Latitude,Longitude")] Location location)
         {
             if (ModelState.IsValid)
             {
@@ -140,7 +140,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LocationId,placeCapacity,supplireEmail,area,city,map,imagePath,price")] Location location)
+        public async Task<IActionResult> Edit(int id, [Bind("LocationId,placeCapacity,supplierEmail,area,city,map,imagePath,price")] Location location)
         {
             if (id != location.LocationId)
             {

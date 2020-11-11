@@ -110,7 +110,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CateringId,foodType,supplireEmail,price,imagePath")] Catering catering)
+        public async Task<IActionResult> Create([Bind("CateringId,foodType,supplierEmail,price,imagePath")] Catering catering)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +142,7 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CateringId,foodType,supplireEmail,price,imagePath")] Catering catering)
+        public async Task<IActionResult> Edit(int id, [Bind("CateringId,foodType,supplierEmail,price,imagePath")] Catering catering)
         {
             if (id != catering.CateringId)
             {
