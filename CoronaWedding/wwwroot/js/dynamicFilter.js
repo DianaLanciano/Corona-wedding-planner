@@ -52,7 +52,7 @@
         let isKosher = document.getElementById("Kosher").value;
         let fromPrice = document.getElementById("fromPrice").value;
         let toPrice = document.getElementById("toPrice").value;
-
+        
         window.location.replace("/Caterings/Index?foodType=" + type +
             "&kosher=" + isKosher + "&fprice=" + fromPrice +
             "&tprice=" + toPrice + "&filtered=true");

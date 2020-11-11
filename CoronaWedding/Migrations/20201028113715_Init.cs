@@ -29,7 +29,7 @@ namespace CoronaWedding.Migrations
                     CateringId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     foodType = table.Column<string>(nullable: true),
-                    supplireEmail = table.Column<string>(nullable: true),
+                    supplierEmail = table.Column<string>(nullable: true),
                     price = table.Column<int>(nullable: false),
                     imagePath = table.Column<string>(nullable: true)
                 },
@@ -45,7 +45,7 @@ namespace CoronaWedding.Migrations
                     LocationId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     placeCapacity = table.Column<int>(nullable: false),
-                    supplireEmail = table.Column<string>(nullable: true),
+                    supplierEmail = table.Column<string>(nullable: true),
                     area = table.Column<string>(nullable: true),
                     city = table.Column<string>(nullable: true),
                     map = table.Column<string>(nullable: true),
@@ -64,7 +64,7 @@ namespace CoronaWedding.Migrations
                     MusicId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     musicType = table.Column<string>(nullable: true),
-                    supplireEmail = table.Column<string>(nullable: true),
+                    supplierEmail = table.Column<string>(nullable: true),
                     price = table.Column<int>(nullable: false),
                     imagePath = table.Column<string>(nullable: true)
                 },
@@ -79,7 +79,7 @@ namespace CoronaWedding.Migrations
                 {
                     PhotographerId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    supplireEmail = table.Column<string>(nullable: true),
+                    supplierEmail = table.Column<string>(nullable: true),
                     imagePath = table.Column<string>(nullable: true),
                     price = table.Column<double>(nullable: false)
                 },

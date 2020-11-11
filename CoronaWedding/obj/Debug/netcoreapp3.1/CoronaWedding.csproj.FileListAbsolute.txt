@@ -18,7 +18,6 @@ C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.TagHelpers.output.cache
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.RazorCoreGenerate.cache
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -166,8 +165,6 @@ C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.csproj.CoreCompileInputs.cache
-C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Create.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Delete.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Details.cshtml.g.cs
@@ -207,3 +204,14 @@ C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Caterings\List.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Music\List.cshtml.g.cs
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Photographers\List.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Home\Comment.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.csproj.CoreCompileInputs.cache
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\statistics.cshtml.g.cs

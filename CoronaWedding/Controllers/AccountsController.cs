@@ -349,7 +349,7 @@ namespace CoronaWedding.Controllers
 
 
         /*******************************Admin Dashboard***********************************************************/
-        public async Task<IActionResult> Dashboard()
+        public async Task<IActionResult> Dashboard(string? id, string? term)
         {
             if (HttpContext.Session.GetString("Type") == null)
             {
@@ -359,18 +359,77 @@ namespace CoronaWedding.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View(await _context.Account.ToListAsync());
+
+            List<Account> accounts = await _context.Account.ToListAsync();
+            if (term != null) accounts = accounts.Where(a => a.Email.Contains(term)).ToList();
+
+            return View(accounts);
         }
 
-        public async Task<IActionResult> searchBox(string term)
+
+
+        /****************d3js  Diana***********************/
+  
+
+
+
+        public IActionResult Statistics()
         {
-            var query = from user in _context.Account
-                        where user.Email.Contains(term)
-                        select new {id = user.AccountId, label = user.Email, value = user.password };
+            var mostPopulaMonths = _context.Account
+                .GroupBy(y => y.weddingDate.Month, (month, records) => new
+                {
+                    Key = month,
+                    Count = records.Count(),
+                    Description = month
+                })
+                .OrderBy(x => x.Key)
+                .ToList();
 
+            var dataPoints = new List<BarData>();
+            mostPopulaMonths.ForEach(x => dataPoints.Add(new BarData() { name = this.getMonthName(x.Description), value = x.Count }));
+            
+            var villasPie = _context.Account
+                .GroupBy(y => y.LocationId, (locationId, records) => new
+                {
+                    Key = locationId,
+                    Count = records.Count(),
+                    Description = locationId
+                })
+                .OrderBy(x => x.Count)
+                .ToList();
+            var piedataPoints = new List<PieDataPoint>();
+            villasPie.ForEach(x => piedataPoints.Add(new PieDataPoint() { Name = x.Description.ToString(), Value = x.Count }));
 
-            return Json(await _context.Account.ToListAsync());
+            var model = new StatisticsViewModel
+            {
+                barChart = new BarChart { dataPoints = dataPoints },
+                pieChart = new PieChart { dataPoints = piedataPoints}
+            };
+            return View(model);
         }
 
+        private string getMonthName(int num)
+        {
+            switch(num)
+            {
+                case 1: return "January";
+                case 2: return "February";
+                case 3: return "March";
+                case 4: return "April";
+                case 5: return "May";
+                case 6: return "June";
+                case 7: return "July";
+                case 8: return "August";
+                case 9: return "September";
+                case 10: return "October";
+                case 11: return "November";
+                case 12: return "December";
+                default: return "";
+            }
+            
+        }
     }
+
+   
+
 }

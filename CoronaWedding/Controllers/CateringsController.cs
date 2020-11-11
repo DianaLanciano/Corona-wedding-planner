@@ -9,6 +9,7 @@ using CoronaWedding.Data;
 using CoronaWedding.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
+using CoronaWedding.Services;
 
 namespace CoronaWedding.Controllers
 {
@@ -28,7 +29,7 @@ namespace CoronaWedding.Controllers
             if (filtered != null)
             {
                 //Advance search
-                if (foodType != null)
+                if (foodType != null && !foodType.Equals("all"))
                 {
                     caterings = caterings.Where(c => c.foodType.Equals(foodType)).ToList();
                 }
@@ -46,6 +47,7 @@ namespace CoronaWedding.Controllers
                 }
             }
             else {
+
                 if (id == null || id == "all")
                     caterings = await _context.Catering.ToListAsync();
                 else
@@ -110,10 +112,11 @@ namespace CoronaWedding.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CateringId,foodType,supplierEmail,price,imagePath")] Catering catering)
+        public async Task<IActionResult> Create([Bind("CateringId,foodType,supplierEmail,price,imagePath")] Catering catering/*, IFormFile file*/)
         {
             if (ModelState.IsValid)
             {
+                //catering.imagePath = await fileUpload.imageUpload(file);
                 _context.Add(catering);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -228,5 +231,6 @@ namespace CoronaWedding.Controllers
             }
             return View(await _context.Catering.ToListAsync());
         }
+     
     }
 }

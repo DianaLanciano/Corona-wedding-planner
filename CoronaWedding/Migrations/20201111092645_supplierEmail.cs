@@ -15,12 +15,12 @@ namespace CoronaWedding.Migrations
                 table: "Music");
 
             migrationBuilder.AddColumn<string>(
-                name: "supplireEmail",
+                name: "supplierEmail",
                 table: "Photographer",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "supplireEmail",
+                name: "supplierEmail",
                 table: "Music",
                 nullable: true);
 
@@ -35,11 +35,11 @@ namespace CoronaWedding.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "supplireEmail",
+                name: "supplierEmail",
                 table: "Photographer");
 
             migrationBuilder.DropColumn(
-                name: "supplireEmail",
+                name: "supplierEmail",
                 table: "Music");
 
             migrationBuilder.AddColumn<string>(

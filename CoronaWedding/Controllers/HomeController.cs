@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CoronaWedding.Models;
+using CoronaWedding.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace CoronaWedding.Controllers
 {
@@ -23,9 +25,20 @@ namespace CoronaWedding.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Comment()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Comment(string comment)
+        {
+            if (HttpContext.Session.GetString("userId") != null)
+            {
+                Facbook.PostToPage(comment);
+                return View();
+            }
+            return RedirectToAction("Login","Accounts");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

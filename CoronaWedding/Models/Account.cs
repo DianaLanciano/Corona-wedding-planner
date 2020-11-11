@@ -22,7 +22,7 @@ namespace CoronaWedding.Models
         public string Email { get; set; }
         public string password { get; set; }
         [DisplayName("Wedding Date")]
-        public DateTime? weddingDate { get; set; }
+        public DateTime weddingDate { get; set; }
         public UserType Type { get; set; }
 
         //for cart

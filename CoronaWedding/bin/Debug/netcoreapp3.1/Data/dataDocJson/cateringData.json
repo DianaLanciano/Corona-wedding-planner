@@ -2,42 +2,42 @@
 [
   {
     "foodType": "asian",
-    "supplierEmail": "ruben.@typepad.com",
+    "supplierEmail":"ruben.@typepad.com",
     "price": 1250,
     "imagePath": "https://media-cdn.tripadvisor.com/media/photo-s/11/a6/21/e3/img-20180101-wa0001-largejpg.jpg",
     "Kosher": false
   },
   {
     "foodType": "asian",
-    "supplireEmail": "maryanna.@unesco.org",
+    "supplierEmail": "maryanna.@unesco.org",
     "price": 3220,
     "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQZ9XxoK0UQxC71pu3i00vsAenwzE0o0pun2Q&usqp=CAU",
     "Kosher": true
   },
   {
     "foodType": "meaty",
-    "supplireEmail": "morgen.@gmpg.org",
+    "supplierEmail": "morgen.@gmpg.org",
     "price": 2521,
     "imagePath": "https://www.eluna.com/Logos/hamikdash_meat.jpg",
     "Kosher": true
   },
   {
     "foodType": "vegan",
-    "supplireEmail": "nomi.@pinterest.com",
+    "supplierEmail": "nomi.@pinterest.com",
     "price": 789,
     "imagePath": "https://i.pinimg.com/originals/a2/78/aa/a278aaecbba7fc62c5920f9f431953ee.jpg",
     "Kosher": true
   },
   {
     "foodType": "meaty",
-    "supplireEmail": "lazar.@angelfire.com",
+    "supplierEmail": "lazar.@angelfire.com",
     "price": 977,
     "imagePath": "https://www.eluna.com/Logos/MeatAndEat_sirloin.jpg",
     "Kosher": false
   },
   {
     "foodType": "vegan",
-    "supplireEmail": "yank.@unblog.fr",
+    "supplierEmail": "yank.@unblog.fr",
     "price": 1200,
     "imagePath": "https://www.greenqueen.com.hk/wp-content/uploads/2020/01/lazy-cat-kitchen-vegan-larb.jpg",
     "Kosher": true

@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Comment";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p style="font-family: 'Dancing Script', cursive">Use this page to comment your experience on our web site.</p>
+<form action="Comment" method="post">
+        <label>Post</label>
+        <textarea class="form-control" name="comment" rows="12" placeholder="write here..."></textarea>
+    <button type="submit" class="btn btn-primary buttonForSite">Publish</button>
+</form>

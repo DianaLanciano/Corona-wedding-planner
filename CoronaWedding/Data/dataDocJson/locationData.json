@@ -13,7 +13,7 @@
   },
   {
     "placeCapacity": 25,
-    "supplireEmail": "cordula.@youku.com",
+    "supplierEmail": "cordula.@youku.com",
     "area": "south",
     "city": "Omer",
     "imagePath": "https://media-cdn.tripadvisor.com/media/photo-s/0e/c9/52/df/triton-luxury-villa.jpg",
@@ -24,7 +24,7 @@
   },
   {
     "placeCapacity": 28,
-    "supplireEmail": "gloriana.@skyrock.com",
+    "supplierEmail": "gloriana.@skyrock.com",
     "area": "center",
     "city": "Ramat HaSharon",
     "imagePath": "https://cf.bstatic.com/images/hotel/max1024x768/182/182851057.jpg",
@@ -35,7 +35,7 @@
   },
   {
     "placeCapacity": 33,
-    "supplireEmail": "carolyne.@myspace.com",
+    "supplierEmail": "carolyne.@myspace.com",
     "area": "north",
     "city": "Had Nes",
     "imagePath": "https://d3hqqpwk0hr6gl.cloudfront.net/_novaimg/4356759-1355622_0_334_3543_1930_2200_1200.rc.jpg",
@@ -46,7 +46,7 @@
   },
   {
     "placeCapacity": 95,
-    "supplireEmail": "leonahgae.@myspace.com",
+    "supplierEmail": "leonahgae.@myspace.com",
     "area": "center",
     "city": "Oranit",
     "imagePath": "https://www.villa10.co.il/images/gallery/vila_456_174482_UGb6HAy.jpg",
@@ -57,7 +57,7 @@
   },
   {
     "placeCapacity": 60,
-    "supplireEmail": "trixi.@nyu.edu",
+    "supplierEmail": "trixi.@nyu.edu",
     "area": "south",
     "city": "Yeruham",
     "imagePath": "https://pix10.agoda.net/hotelImages/159/159291/159291_15082616510035123057.jpg?s=1024x768",
@@ -68,7 +68,7 @@
   },
   {
     "placeCapacity": 45,
-    "supplireEmail": "patrice.@blogspot.com",
+    "supplierEmail": "patrice.@blogspot.com",
     "area": "center",
     "city": "Herzliya",
     "imagePath": "https://cf.bstatic.com/images/hotel/max1024x768/171/171170838.jpg",
@@ -79,7 +79,7 @@
   },
   {
     "placeCapacity": 55,
-    "supplireEmail": "maury.@dyndns.org",
+    "supplierEmail": "maury.@dyndns.org",
     "area": "center",
     "city": "Kfar Saba",
     "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTDbLtenJnKp8nji_7dlR-XFDlcsEu03grFfw&usqp=CAU",
@@ -90,7 +90,7 @@
   },
   {
     "placeCapacity": 30,
-    "supplireEmail": "ernesta.@apple.com",
+    "supplierEmail": "ernesta.@apple.com",
     "area": "north",
     "city": "Kfar Blum",
     "imagePath": "https://odis.homeaway.com/odis/listing/900bb556-7d1c-44d4-b104-216ea1dae1a9.c10.jpg",

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CoronaWedding.Data;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace CoronaWedding
@@ -59,7 +61,7 @@ namespace CoronaWedding
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+       
             app.UseRouting();
 
             app.UseAuthorization();
