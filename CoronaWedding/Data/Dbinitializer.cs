@@ -22,19 +22,10 @@ namespace CoronaWedding.Data
             }
             var directoryPath = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin", StringComparison.Ordinal));
 
-            /**********************************for Account*****************************/
-            string Path = directoryPath + "Data\\dataDocJson\\accountsData.json";
-            var myJsonString = File.ReadAllText(Path);
-            var accounts = JsonConvert.DeserializeObject<List<Account>>(myJsonString);
-            foreach (Account l in accounts)
-            {
-                context.Account.Add(l);
-            }
-            context.SaveChanges();
 
             /**********************************for Catering*****************************/
-            Path = directoryPath + "Data\\dataDocJson\\cateringData.json";
-            myJsonString = File.ReadAllText(Path);
+            string Path = directoryPath + "Data\\dataDocJson\\cateringData.json";
+            var myJsonString = File.ReadAllText(Path);
             var caterings = JsonConvert.DeserializeObject<List<Catering>>(myJsonString);
             foreach (Catering l in caterings)
             {
@@ -68,6 +59,17 @@ namespace CoronaWedding.Data
             foreach (Photographer l in photos)
             {
                 context.Photographer.Add(l);
+            }
+            context.SaveChanges();
+
+
+            /**********************************for Account*****************************/
+             Path = directoryPath + "Data\\dataDocJson\\accountsData.json";
+             myJsonString = File.ReadAllText(Path);
+            var accounts = JsonConvert.DeserializeObject<List<Account>>(myJsonString);
+            foreach (Account l in accounts)
+            {
+                context.Account.Add(l);
             }
             context.SaveChanges();
 
