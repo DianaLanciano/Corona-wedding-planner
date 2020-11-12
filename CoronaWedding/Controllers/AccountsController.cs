@@ -372,8 +372,8 @@ namespace CoronaWedding.Controllers
         {
             if (HttpContext.Session.GetString("userId") != null)
             {
-                if (HttpContext.Session.GetString("userType")Equals("Admin"))
-                  {
+                if (HttpContext.Session.GetString("Type").Equals("Admin"))
+                {
 
                     var mostPopulaMonths = _context.Account
                .GroupBy(y => y.weddingDate.Month, (month, records) => new
