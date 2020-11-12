@@ -26,6 +26,15 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbar-list-8">
             <ul class="navbar-nav">
+
+                @if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Comment">Comment</a>
+                    </li>
+                }
+
+
             </ul>
             <div class="right-side d-flex">
                 <ul class="navbar-nav">
@@ -93,11 +102,13 @@
     @* ********************   Footer*************************** *@
     <section id="footer">
         <footer class="footer footerConteiner mt-auto py-3">
-            <i class="footer-icons fab fa-facebook-f"></i>
-            <i class="footer-icons fab fa-twitter-square"></i>
-            <i class="footer-icons fab fa-instagram"></i>
-            <i class="footer-icons fas fa-envelope-open-text"></i>
-            <p>© Copyright 2020 Application Cource</p>
+            <a href="https://www.facebook.com/diana.isakov.395">
+                <i class="footer-icons fab fa-facebook-f"></i>
+            </a>
+            <a href="mailto:isakovdiana1@gmail.com">
+                <i class="footer-icons fas fa-envelope-open-text"></i>
+            </a>
+                <p>© Copyright 2020 Diana Isakov</p>
         </footer>
     </section>
 

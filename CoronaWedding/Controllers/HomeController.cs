@@ -27,18 +27,22 @@ namespace CoronaWedding.Controllers
 
         public IActionResult Comment()
         {
+            if (HttpContext.Session.GetString("userId") == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
             return View();
         }
 
         [HttpPost]
         public IActionResult Comment(string comment)
         {
-            if (HttpContext.Session.GetString("userId") != null)
+            if (HttpContext.Session.GetString("userId") == null)
             {
-                Facbook.PostToPage(comment);
-                return View();
+                return RedirectToAction("Login", "Accounts");
             }
-            return RedirectToAction("Login","Accounts");
+            Facbook.PostToPage(comment);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -7,7 +7,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="title">
+<div class="row title">
     <img src="/Media/images/cateringLogo.PNG" alt="title" class="rounded mx-auto d-block">
 </div>
 <hr>
@@ -53,62 +53,67 @@
     </div>
 }
 
-<div class="filter-nav">
-    <button class="filter-all filterButton" data-filter="all" value="all" name="Caterings"> Show All</button>
-    <button class="filter filterButton" data-filter="asian" value="Asian" name="Caterings"> Asian</button>
-    <button class="filter filterButton" data-filter="meaty" value="meaty" name="Caterings"> Meaty</button>
-    <button class="filter filterButton" data-filter="vegan" value="vegan" name="Caterings"> Vegan</button>
+<div class="filter-nav row">
+    <button class="filter-all filterButton col" data-filter="all" value="all" name="Caterings"> Show All</button>
+    <button class="filter filterButton col" data-filter="asian" value="Asian" name="Caterings"> Asian</button>
+    <button class="filter filterButton col" data-filter="meaty" value="meaty" name="Caterings"> Meaty</button>
+    <button class="filter filterButton col" data-filter="vegan" value="vegan" name="Caterings"> Vegan</button>
 </div>
 
-@foreach (var item in Model)
-{
-    <div class="responsive-images">
-        <div class="filterDiv">
-            @if (ViewBag.IsAdmin)
-            {
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-lg-3 responsive-images">
+            <div class="filterDiv">
+                @if (ViewBag.IsAdmin)
+                {
+                    <div class="row">
+                        <a class="edit" asp-controller="Caterings" asp-action="Edit" asp-route-id="@item.CateringId"><i class="fas fa-edit"></i></a>
+                        <a class="delete" asp-controller="Caterings" asp-action="Delete" asp-route-id="@item.CateringId"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                }
                 <div class="row">
-                    <a class="edit" asp-controller="Caterings" asp-action="Edit" asp-route-id="@item.CateringId"><i class="fas fa-edit"></i></a>
-                    <a class="delete" asp-controller="Caterings" asp-action="Delete" asp-route-id="@item.CateringId"><i class="fas fa-trash-alt"></i></a>
+                    <div class="col">
+                        <img id=@item.CateringId src="@item.imagePath" class="imageFilter" name="Caterings">
+                    </div>
                 </div>
-            }
-            <div class="row">
-                <div class="col">
-                    <img id=@item.CateringId src="@item.imagePath" class="imageFilter" name="Caterings">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="mail">Email:<br /> @item.supplierEmail</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 class="mail">Email:<br /> @item.supplierEmail</h5>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="mail">Food Type: @item.foodType</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 class="mail">Food Type: @item.foodType</h5>
+                <div class="row">
+                    <div class="col">
+                        <h5>Pricr: @item.price$</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5>Pricr: @item.price$</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <button class="buttonForSite addToCartButoon" id=@item.CateringId name="Catering">
-                        Add To Cart
-                    </button>
+                <div class="row">
+                    <div class="col">
+                        <button class="buttonForSite addToCartButoon" id=@item.CateringId name="Catering">
+                            Add To Cart
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
+
+</div>
 
 
 
-<div class="row">
-    <div class="row prevAndNext">
-        <div class="col align-self-center">
+
+
+<div class="row prevAndNext justify-content-center">
+    <div class="col-4 align-self-center">
+        <div class="row">
             <a class="previous" asp-controller="Locations" asp-action="Index">&laquo; Previous</a>
-            <a class="next" asp-controller="Caterings" asp-action="Index">Next &raquo;</a>
+            <a class="next" asp-controller="Music" asp-action="Index">Next &raquo;</a>
         </div>
     </div>
 </div>

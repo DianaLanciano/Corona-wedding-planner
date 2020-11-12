@@ -5,7 +5,7 @@
 
 @{ ViewData["Title"] = "Index"; }
 
-<div class="title">
+<div class="row title">
     <img src="/Media/images/photoLogo.PNG" alt="title" class="rounded mx-auto d-block">
 </div>
 <hr>
@@ -13,41 +13,49 @@
 @if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null)
 {
 
-@foreach (Recommend entry in ViewBag.recommended)
-{
+    <div class="row">
+    @foreach (Recommend entry in ViewBag.recommended)
+    {
 
-<div class="why_us_section">
-    <div class="col-lg-4 col-md-6 mx-auto col-3">
-        <div class="box">
-            <div class="img-box">
-                <i class="fas fa-camera-retro"></i>
-            </div>
-            <div class="detail-box">
-                <h5>
-                    Recommended For You!
-                </h5>
-                <p>
-                    <h5>Email: @entry.Photographer.supplierEmail</h5>
-                    <img width="150" height="150" src="@entry.Photographer.imagePath" />
-                </p>
-            </div>
-        </div>
-    </div>
-</div>}}
+                <div class="why_us_section">
+                <div class="col-lg-4 col-md-6 mx-auto col-3">
+                    <div class="box">
+                        <div class="img-box">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Recommended For You!
+                            </h5>
+                            <p>
+                                <h5>Email: @entry.Photographer.supplierEmail</h5>
+                                <img width="150" height="150" src="@entry.Photographer.imagePath" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+     </div>}
+</div>
+
+
+
+}
 
 
 
 
-@foreach (var item in Model)
-{
-<div class="responsive-images">
-    <div class="filterDiv">
-        @if (ViewBag.IsAdmin)
-        {
 <div class="row">
-    <a class="edit" asp-controller="Photographers" asp-action="Edit" asp-route-id="@item.PhotographerId"><i class="fas fa-edit"></i></a>
-    <a class="delete" asp-controller="Photographers" asp-action="Delete" asp-route-id="@item.PhotographerId"><i class="fas fa-trash-alt"></i></a>
-</div>}
+
+    @foreach (var item in Model)
+    {
+            <div class="col-md-4 col-lg-3 responsive-images">
+            <div class="filterDiv">
+         @if (ViewBag.IsAdmin)
+            {
+                    <div class="row">
+                        <a class="edit" asp-controller="Photographers" asp-action="Edit" asp-route-id="@item.PhotographerId"><i class="fas fa-edit"></i></a>
+                        <a class="delete" asp-controller="Photographers" asp-action="Delete" asp-route-id="@item.PhotographerId"><i class="fas fa-trash-alt"></i></a>
+                    </div>}
 
 
         <div class="row">
@@ -74,10 +82,13 @@
         </div>
     </div>
 </div>}
+</div>
 
-<div class="row">
-    <div class="row prevAndNext">
-        <div class="col align-self-center">
+
+
+<div class="row prevAndNext justify-content-center">
+    <div class="col-4 align-self-center">
+        <div class="row">
             <a class="previous" asp-controller="Music" asp-action="Index">&laquo; Previous</a>
             <a class="next" asp-controller="Accounts" asp-action="Checkout">Next &raquo;</a>
         </div>

@@ -5,15 +5,11 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 
 
-
-
-
-
     <script>
         // Bar Chart code
         const margin = ({ top: 20, right: 0, bottom: 30, left: 40 });
-        const width = 500;
-        const height = 300;
+        const width = 400;
+        const height = 400;
         const data = @Json.Serialize(Model.barChart.dataPoints);
 
         const yAxis = g => g
@@ -75,6 +71,8 @@
 
 
         ///////////////////////////////////////////////
+
+
          var pieData =  @Json.Serialize(Model.pieChart.dataPoints);
         var w = 500,                        //width
             h = 400,                            //height
@@ -129,14 +127,18 @@
 
 
 <div class="text-center">
-    <p>Wedding most popular months</p>
+    <div class="title row">
+        <img src="/Media/images/popularMonths.PNG" alt="title" class="rounded mx-auto d-block">
+    </div>
     <svg class="js-statistics-bar-chart">
     </svg>
 </div>
 
 
 <div class="text-center pieChart">
-    <p>The most ordered villas</p>
+    <div class="title row">
+        <img src="/Media/images/villasPopularity.PNG" alt="title" class="rounded mx-auto d-block">
+    </div>
     <svg class="js-statistics-pie-chart">
     </svg>
 </div>

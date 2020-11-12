@@ -3,62 +3,68 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="title">
+<div class=" rowtitle">
     <img src="/Media/images/musicLogo.PNG" alt="title" class="rounded mx-auto d-block">
 </div>
 <hr>
-<div class="filter-nav">
+<div class="filter-nav row">
     <button class="filter-all filterButton" data-filter="all" value="all" name="Music"> Show All</button>
     <button class="filter filterButton" data-filter="band" value="band" name="Music">  Live Band</button>
     <button class="filter filterButton" data-filter="singer" value="singer" name="Music"> Singer</button>
     <button class="filter filterButton" data-filter="DJ" value="DJ" name="Music"> DJ</button>
 </div>
 
-@foreach (var item in Model)
-{
-    <div class="responsive-images">
-        <div class="filterDiv">
-            @if (ViewBag.IsAdmin)
-            {
-                <div class="row">
-                    <a class="edit" asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId"><i class="fas fa-edit"></i></a>
-                    <a class="delete" asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId"><i class="fas fa-trash-alt"></i></a>
-                </div>
-            }
-
-            <div class="row">
-                <div class="col">
-                    <img id=@item.MusicId src="@item.imagePath" class="imageFilter" name="Music">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 dir="rtl">Email:<br /> @item.supplierEmail</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 dir="rtl">Music Type: @item.musicType</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 dir="rtl">Price: @item.price</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <button class="buttonForSite addToCartButoon" id=@item.MusicId name="Music">
-                        Add To Cart
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>}
 
 <div class="row">
-    <div class="row prevAndNext">
-        <div class="col align-self-center">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-lg-3 responsive-images">
+            <div class="filterDiv">
+                @if (ViewBag.IsAdmin)
+                {
+                    <div class="row">
+                        <a class="edit" asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId"><i class="fas fa-edit"></i></a>
+                        <a class="delete" asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                }
+
+                <div class="row">
+                    <div class="col">
+                        <img id=@item.MusicId src="@item.imagePath" class="imageFilter" name="Music">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h5 dir="rtl">Email:<br /> @item.supplierEmail</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h5 dir="rtl">Music Type: @item.musicType</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h5 dir="rtl">Price: @item.price$</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="buttonForSite addToCartButoon" id=@item.MusicId name="Music">
+                            Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>}
+
+</div>
+
+
+
+<div class="row prevAndNext justify-content-center">
+    <div class="col-4 align-self-center">
+        <div class="row">
             <a class="previous" asp-controller="Caterings" asp-action="Index">&laquo; Previous</a>
             <a class="next" asp-controller="Photographers" asp-action="Index">Next &raquo;</a>
         </div>

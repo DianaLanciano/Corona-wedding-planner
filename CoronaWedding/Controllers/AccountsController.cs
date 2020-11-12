@@ -42,10 +42,10 @@ namespace CoronaWedding.Controllers
                 .Include(p => p.Photographer).SingleOrDefault();
             if (user == null)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
 
-          
+
             ViewBag.LocationPrice = user.Location != null ? user.Location.price : 0;
             ViewBag.CateringPrice = user.Catering != null ? user.Catering.price : 0;
             ViewBag.MusicPrice = user.Music != null ? user.Music.price : 0;
@@ -105,7 +105,7 @@ namespace CoronaWedding.Controllers
         //edit my profile
         public IActionResult editProfile()
         {
-           string profileId = HttpContext.Session.GetString("userId");
+            string profileId = HttpContext.Session.GetString("userId");
             if (profileId == null)
             {
                 return RedirectToAction("Login");
@@ -129,7 +129,7 @@ namespace CoronaWedding.Controllers
             {
                 return RedirectToAction("Edit", "Accounts", new { id = profileId });
             }
-          
+
 
             var account = await _context.Account.FindAsync(id);
             if (account == null)
@@ -260,7 +260,7 @@ namespace CoronaWedding.Controllers
                 _context.Account.Add(user);
                 await _context.SaveChangesAsync();
                 SignIn(user);
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
 
 
             }
@@ -367,50 +367,56 @@ namespace CoronaWedding.Controllers
         }
 
 
-
         /****************d3js  Diana***********************/
-  
-
-
-
         public IActionResult Statistics()
         {
-            var mostPopulaMonths = _context.Account
-                .GroupBy(y => y.weddingDate.Month, (month, records) => new
-                {
-                    Key = month,
-                    Count = records.Count(),
-                    Description = month
-                })
-                .OrderBy(x => x.Key)
-                .ToList();
-
-            var dataPoints = new List<BarData>();
-            mostPopulaMonths.ForEach(x => dataPoints.Add(new BarData() { name = this.getMonthName(x.Description), value = x.Count }));
-            
-            var villasPie = _context.Account
-                .GroupBy(y => y.LocationId, (locationId, records) => new
-                {
-                    Key = locationId,
-                    Count = records.Count(),
-                    Description = locationId
-                })
-                .OrderBy(x => x.Count)
-                .ToList();
-            var piedataPoints = new List<PieDataPoint>();
-            villasPie.ForEach(x => piedataPoints.Add(new PieDataPoint() { Name = x.Description.ToString(), Value = x.Count }));
-
-            var model = new StatisticsViewModel
+            if (HttpContext.Session.GetString("userId") != null)
             {
-                barChart = new BarChart { dataPoints = dataPoints },
-                pieChart = new PieChart { dataPoints = piedataPoints}
-            };
-            return View(model);
+                if (HttpContext.Session.GetString("userType")Equals("Admin"))
+                  {
+
+                    var mostPopulaMonths = _context.Account
+               .GroupBy(y => y.weddingDate.Month, (month, records) => new
+               {
+                   Key = month,
+                   Count = records.Count(),
+                   Description = month
+               })
+               .OrderBy(x => x.Key)
+               .ToList();
+
+                    var dataPoints = new List<BarData>();
+                    mostPopulaMonths.ForEach(x => dataPoints.Add(new BarData() { name = this.getMonthName(x.Description), value = x.Count }));
+
+                    var villasPie = _context.Account
+                        .GroupBy(y => y.LocationId, (locationId, records) => new
+                        {
+                            Key = locationId,
+                            Count = records.Count(),
+                            Description = locationId
+                        })
+                        .OrderBy(x => x.Count)
+                        .ToList();
+                    var piedataPoints = new List<PieDataPoint>();
+                    villasPie.ForEach(x => piedataPoints.Add(new PieDataPoint() { Name = x.Description.ToString(), Value = x.Count }));
+
+                    var model = new StatisticsViewModel
+                    {
+                        barChart = new BarChart { dataPoints = dataPoints },
+                        pieChart = new PieChart { dataPoints = piedataPoints }
+                    };
+                    return View(model);
+
+                }
+
+
+            }
+            return RedirectToAction("Login", "Accounts");
         }
 
         private string getMonthName(int num)
         {
-            switch(num)
+            switch (num)
             {
                 case 1: return "January";
                 case 2: return "February";
@@ -426,10 +432,10 @@ namespace CoronaWedding.Controllers
                 case 12: return "December";
                 default: return "";
             }
-            
+
         }
     }
 
-   
+
 
 }

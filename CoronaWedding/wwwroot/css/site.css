@@ -304,12 +304,15 @@ text-center {
     width: 100px;
     line-height: 100px;
     text-align: center;
-    margin: 2px;
     vertical-align: middle;
-    width: 273px;
+    width: 100%;
     height: 450px;
     position: relative;
     border: ridge;
+}
+
+.filterButton {
+    margin: 3px;
 }
 
 .responsive-images {

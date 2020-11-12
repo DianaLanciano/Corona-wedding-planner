@@ -1,11 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Comment";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p style="font-family: 'Dancing Script', cursive">Use this page to comment your experience on our web site.</p>
+
+<div class="row title">
+    <img src="/Media/images/facebookComment.PNG" alt="title" class="rounded mx-auto d-block">
+</div>
+
+<p class="text-center" style="font-family: 'Dancing Script', cursive; font-size:30px; color:lightpink;">
+    Use this page to comment your experience on our web site.
+</p>
+
 <form action="Comment" method="post">
-        <label>Post</label>
-        <textarea class="form-control" name="comment" rows="12" placeholder="write here..."></textarea>
-    <button type="submit" class="btn btn-primary buttonForSite">Publish</button>
+    <textarea class="form-control" name="comment" rows="12" placeholder="write here..."></textarea>
+    <hr />
+    <button type="submit" class="buttonForSite addToCartButoon">
+        Publish
+    </button>
+    @*<button type="submit" class="btn btn-primary buttonForSite">Publish</button>*@
 </form>

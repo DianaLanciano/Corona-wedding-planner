@@ -1,6 +1,5 @@
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\CoronaWedding.exe
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\CoronaWedding.deps.json
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\CoronaWedding.runtimeconfig.json
@@ -215,3 +214,4 @@ C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\bin\Debug\netcoreapp3.1\
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.csproj.CoreCompileInputs.cache
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\CoronaWedding.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\statistics.cshtml.g.cs
+C:\Users\isako\source\repos\CoronaWedding\CoronaWedding\obj\Debug\netcoreapp3.1\scopedcss\bundle\CoronaWedding.styles.css
