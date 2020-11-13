@@ -85,6 +85,12 @@
                         <li class="nav-item lastItem">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Photographers" asp-action="index">Photographer</a>
                         </li>
+                        @if(HttpContextAccessor.HttpContext.Session.GetString("Type") != null)
+                        {
+                        <li class="nav-item checkoutItem">
+                            <a class="nav-link text-dark" asp-controller="Accounts" asp-action="Checkout">Checkout</a>
+                        </li>
+                        }
                     </ul>
                 </div>
             </div>

@@ -340,6 +340,19 @@ namespace CoronaWedding.Controllers
             await _context.SaveChangesAsync();
             return Json(new { succes = true });
         }
+        public IActionResult deleteFromCart(string item)
+        {
+            string userId = HttpContext.Session.GetString("userId");
+            Account userAccount = _context.Account.FirstOrDefault(u => u.Email.Equals(userId));
+            switch (item)
+            {
+                case "Location": userAccount.LocationId = null; break;
+                case "Catering": userAccount.CateringId = null; break;
+                case "Music": userAccount.MusicId = null; break;
+                case "Photographer": userAccount.Photographer = null; break;
+            }
+            return RedirectToAction("Accounts","Checkout");
+        }
 
         public bool isAdmin()
         {

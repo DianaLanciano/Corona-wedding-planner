@@ -206,6 +206,13 @@ namespace CoronaWedding.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var accountsWhithCatering = _context.Account
+              .Where(l => l.CateringId == id);
+            foreach (var l in accountsWhithCatering)
+            {
+                l.CateringId = null;
+            }
+
             var catering = await _context.Catering.FindAsync(id);
             _context.Catering.Remove(catering);
             await _context.SaveChangesAsync();

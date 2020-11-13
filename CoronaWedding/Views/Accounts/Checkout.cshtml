@@ -19,21 +19,39 @@
                 <h4>Purchase summary:</h4>
                 <hr />
                 <p>
+
+
                     @if (@ViewBag.LocationPrice != 0)
                     {
-                        <h5>Location: @ViewBag.LocationPrice$</h5>
+                        <div class="row">
+                            <h5>Location: @ViewBag.LocationPrice$</h5>
+                            <a asp-action="deleteFromCart" asp-route-id="Location"><i class="fas fa-trash-alt"></i></a>
+                           
+                        </div>
+
                     }
                     @if (@ViewBag.CateringPrice != 0)
                     {
-                        <h5>Catering: @ViewBag.CateringPrice$</h5>
+                        <div class="row">
+                            <h5>Catering: @ViewBag.CateringPrice$</h5>&nbsp
+                            <a asp-controller="Accounts" asp-action="deleteFromCart" asp-route-id="Catering"><i class="fas fa-trash-alt"></i></a>
+                        </div>
                     }
                     @if (@ViewBag.MusicPrice != 0)
                     {
-                        <h5>Music: @ViewBag.MusicPrice$</h5>
+                        <div class="row">
+                            <h5>Music: @ViewBag.MusicPrice$</h5>&nbsp
+                            <a asp-controller="Accounts" asp-action="deleteFromCart" asp-route-id="Music"><i class="fas fa-trash-alt"></i></a>
+
+                        </div>
+
                     }
                     @if (@ViewBag.PhotographerPrice != 0)
                     {
-                        <h5>Photographer: @ViewBag.PhotographerPrice$</h5>
+                        <div class="row">
+                            <h5>Photographer: @ViewBag.PhotographerPrice$</h5>&nbsp
+                            <a asp-controller="Accounts" asp-action="deleteFromCart" asp-route-id="Photographer"><i class="fas fa-trash-alt"></i></a>
+                        </div>
                     }
                     <hr />
                     <h5>Total price: @ViewBag.Total$</h5>
@@ -101,4 +119,5 @@
         frameborder="0" allow="accelerometer; autoplay; clipboard-write;
   encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
+
 
