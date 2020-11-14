@@ -23,8 +23,12 @@
                 @if (ViewBag.IsAdmin)
                 {
                     <div class="row">
-                        <a class="edit" asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId"><i class="fas fa-edit"></i></a>
-                        <a class="delete" asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId"><i class="fas fa-trash-alt"></i></a>
+                        <div class="col-6">
+                            <a class="edit" asp-controller="Music" asp-action="Edit" asp-route-id="@item.MusicId"><i class="fas fa-edit"></i></a>
+                        </div>
+                        <div class="col-6">
+                            <a class="delete" asp-controller="Music" asp-action="Delete" asp-route-id="@item.MusicId"><i class="fas fa-trash-alt"></i></a>
+                        </div>
                     </div>
                 }
 
@@ -50,7 +54,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="buttonForSite addToCartButoon" id=@item.MusicId name="Music">
+                        <button type="button" class="buttonForSite addToCartButoon" id=@item.MusicId name="Music">
                             Add To Cart
                         </button>
                     </div>

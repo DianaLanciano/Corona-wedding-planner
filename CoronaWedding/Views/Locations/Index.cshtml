@@ -6,6 +6,8 @@
 @{ ViewData["Title"] = "Index"; }
 
 
+
+
 <div class="row title">
     <img src="/Media/images/locationLogo.PNG" alt="title" class="rounded mx-auto d-block">
 </div>
@@ -53,14 +55,18 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4 col-lg-3 responsive-images">
-        <div class="filterDiv">
+<div class="col-md-4 col-lg-3 responsive-images">
+    <div class="filterDiv">
         @if (ViewBag.IsAdmin)
         {
-            <div class="row">
-                <a class="edit" asp-controller="Locations" asp-action="Edit" asp-route-id="@item.LocationId"><i class="fas fa-edit"></i></a>
-                <a class="delete" asp-controller="Locations" asp-action="Delete" asp-route-id="@item.LocationId"><i class="fas fa-trash-alt"></i></a>
-            </div>}
+<div class="row">
+    <div class="col-6">
+        <a class="edit" asp-controller="Locations" asp-action="Edit" asp-route-id="@item.LocationId"><i class="fas fa-edit"></i></a>
+    </div>
+    <div class="col-6">
+        <a class="delete" asp-controller="Locations" asp-action="Delete" asp-route-id="@item.LocationId"><i class="fas fa-trash-alt"></i></a>
+    </div>
+</div>}
 
 
         <div class="row">
@@ -85,7 +91,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button class="buttonForSite addToCartButoon" id=@item.LocationId name="Location">
+                <button type="button" class="buttonForSite addToCartButoon" id=@item.LocationId name="Location">
                     Add To Cart
                 </button>
             </div>

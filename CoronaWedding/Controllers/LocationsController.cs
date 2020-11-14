@@ -28,7 +28,7 @@ namespace CoronaWedding.Controllers
             List<Location> locations = _context.Location.ToList();
             if (filtered != null)
             {
-                if (area != null)
+                if (area != null && !area.Equals("all"))
                 {
                     locations = locations.Where(l => l.area.Equals(area)).ToList();
                 }
