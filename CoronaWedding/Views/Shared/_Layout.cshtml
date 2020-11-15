@@ -33,7 +33,11 @@
                         <a class="nav-link" asp-controller="Home" asp-action="Comment">Comment</a>
                     </li>
                 }
-
+                @if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null && HttpContextAccessor.HttpContext.Session.GetString("Type").Equals("Admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Accounts" asp-action="Dashboard">Dashboard</a>
+                    </li>}
 
             </ul>
             <div class="right-side d-flex">
@@ -114,7 +118,7 @@
             <a href="mailto:isakovdiana1@gmail.com">
                 <i class="footer-icons fas fa-envelope-open-text"></i>
             </a>
-                <p>© Copyright 2020 Diana Lanciano</p>
+                <p>© Copyright 2020 Diana Isakov, Igal Rachman, Tal Franco</p>
         </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -11,8 +14,11 @@
         Wedding Help you can plan youre wedding easilly<br />
     </p>
 </div>
-
+@if (HttpContextAccessor.HttpContext.Session.GetString("userId") == null)
+{ 
 <button id="startProcess" class="buttonForSite login100-form-btn"> Start Process</button>
+}
+
 
 <div class="carousel-container">
     <div class="row">

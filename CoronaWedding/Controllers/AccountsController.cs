@@ -243,10 +243,17 @@ namespace CoronaWedding.Controllers
                 var ifEmailExist = (from u in _context.Account
                                     where u.Email.ToUpper() == email.ToUpper()
                                     select new { email }).FirstOrDefault();
+                DateTime localDate = DateTime.Now;
+                bool validDate = date > localDate;
 
                 if (ifEmailExist != null)
                 {
                     ViewData["error"] = "Email already exist";
+                    return View();
+                }
+                if (!validDate)
+                {
+                    ViewData["error"] = "Please select a valid date";
                     return View();
                 }
 
@@ -350,7 +357,7 @@ namespace CoronaWedding.Controllers
                 case "Location": userAccount.LocationId = null; break;
                 case "Catering": userAccount.CateringId = null; break;
                 case "Music": userAccount.MusicId = null; break;
-                case "Photographer": userAccount.Photographer = null; break;
+                case "Photographer": userAccount.PhotographerId = null; break;
             }
             _context.Update(userAccount);
             await _context.SaveChangesAsync();

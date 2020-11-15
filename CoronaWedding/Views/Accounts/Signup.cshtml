@@ -32,7 +32,7 @@
 
         <div class="wrap-input100 validate-input">
             <i class="far fa-calendar-alt" aria-hidden="true"></i>
-            <input type="date" asp-for="weddingDate" direction="rtl" class="input100" name="date" placeholder="Weding Date">
+            <input type="date" id="datetimepicker" asp-for="weddingDate" direction="rtl" class="input100" name="date" placeholder="Weding Date">
             <span class="focus-input100"></span>
             <span asp-validation-for="weddingDate" class="symbol-input100">
             </span>
@@ -43,3 +43,10 @@
     </div>
 </form>
 
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker').datetimepicker({
+                    minDate:new Date()
+                });
+            });
+ </script>
