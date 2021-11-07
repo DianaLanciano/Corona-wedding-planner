@@ -3,8 +3,6 @@
 The wedding planner its a project that allows to plan a wedding.
 The website was built with ASP.NET Core MVC Web Application.
 
-#Motivation
-The application motivation is to create an web application that serves both the customers and store managers.
 
 # Features
 
@@ -14,3 +12,10 @@ The application motivation is to create an web application that serves both the 
 4. Maps using Google Maps API's(Maps JavaScript API & Geocoding API) for pinpointing stores addresses on a map for customers comfort.
 5. Graphs for store revenues & items statistics using d3js.
 6. Using Facebook API.
+
+
+Home page:
+
+
+https://user-images.githubusercontent.com/62158562/140649332-29bb2955-050b-4449-8893-01a5c8c1e7a5.mp4
+
